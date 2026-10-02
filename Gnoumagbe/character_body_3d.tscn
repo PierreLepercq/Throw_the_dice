@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://di68h2hjqtn0j"]
 
 [ext_resource type="Script" uid="uid://d3cbj7hrrlfct" path="res://character_movement.gd" id="1_sgu3n"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_pt6yw"]
+[ext_resource type="PackedScene" uid="uid://ov2wrgc30pa5" path="res://assets/3d/Dice.fbx" id="2_wjg2j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gk8nk"]
 
@@ -11,14 +10,9 @@ script = ExtResource("1_sgu3n")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=976819131]
 
-[node name="Mesh" type="MeshInstance3D" parent="Pivot" unique_id=2136433420]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_pt6yw")
+[node name="Mesh" parent="Pivot" unique_id=2056667528 instance=ExtResource("2_wjg2j")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.49971855, 0)
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1576795103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_gk8nk")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2142227976]
-transform = Transform3D(1, 0, 0, 0, 0.8318655, 0.5549773, 0, -0.5549773, 0.8318655, 0, 5.13007, 4.4103684)
-light_energy = 2.0
