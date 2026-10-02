@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bqfkt1j11sbyh"]
+
+[ext_resource type="Script" uid="uid://cdwdxl7yyk3xq" path="res://player.gd" id="1_onrkg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
+albedo_color = Color(0, 1, 0.9764706, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0mx8d"]
+material = SubResource("StandardMaterial3D_0xm2m")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_swqdq"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1907765665]
+script = ExtResource("1_onrkg")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=1278933216]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" unique_id=1453696105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49999997, 0)
+mesh = SubResource("BoxMesh_0mx8d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=309238357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_swqdq")
