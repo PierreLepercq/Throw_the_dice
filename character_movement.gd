@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends RigidBody3D
 @onready var pivot = $Pivot
 @onready var mesh = $Pivot/Mesh
 
