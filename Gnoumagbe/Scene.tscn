@@ -1,13 +1,61 @@
 [gd_scene format=3 uid="uid://cbdssrq17tehh"]
 
-[ext_resource type="PackedScene" uid="uid://di68h2hjqtn0j" path="res://Gnoumage/character_body_3d.tscn" id="1_hoy5k"]
+[ext_resource type="PackedScene" uid="uid://di68h2hjqtn0j" path="res://Gnoumagbe/character_body_3d.tscn" id="1_hoy5k"]
+[ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="1_wv7je"]
+[ext_resource type="Texture2D" uid="uid://bqju2j5d3526" path="res://Prototype_Grid_Gray_07-512x512.png" id="2_hp7dp"]
+[ext_resource type="Script" uid="uid://cajdveswn36qc" path="res://Gnoumagbe/camera_follow.gd" id="3_f0d2d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_121eh"]
+albedo_texture = ExtResource("2_hp7dp")
+albedo_texture_force_srgb = true
+uv1_scale = Vector3(2, 2, 2)
+uv1_offset = Vector3(1.5, 1.5, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sgt47"]
 
-[node name="Node3D" type="Node3D" unique_id=1233023898]
+[sub_resource type="BoxShape3D" id="BoxShape3D_4dcoa"]
 
-[node name="CharacterBody3D" parent="." unique_id=1446405869 instance=ExtResource("1_hoy5k")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i18n0"]
+
+[node name="Node3D" type="Node3D" unique_id=1233023898]
+script = ExtResource("1_wv7je")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1550433875]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_121eh")
 mesh = SubResource("PlaneMesh_sgt47")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=108885379]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1939474585 node_paths=PackedStringArray("player")]
+transform = Transform3D(0.7071068, -0.35355338, 0.61237246, 0, 0.8660254, 0.50000006, -0.7071068, -0.35355338, 0.61237246, 9.061028, 7.2538414, 10.4478245)
+projection = 1
+size = 16.0
+script = ExtResource("3_f0d2d")
+player = NodePath("../../Base")
+
+[node name="Base" type="Node3D" parent="." unique_id=29706887]
+
+[node name="CharacterBody3D" parent="Base" unique_id=1446405869 instance=ExtResource("1_hoy5k")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=870828702]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2104924402]
+transform = Transform3D(20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_4dcoa")
+
+[node name="End" type="Area3D" parent="." unique_id=1414639940]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="End" unique_id=527730005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0242152, 0)
+shape = SubResource("BoxShape3D_4ye73")
+
+[node name="Fail" type="Area3D" parent="." unique_id=1788487326]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.5893407, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fail" unique_id=1015245611]
+transform = Transform3D(30, 0, 0, 0, 5, 0, 0, 0, 30, 0, 0, 0)
+shape = SubResource("BoxShape3D_i18n0")
