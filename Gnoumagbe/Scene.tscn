@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://di68h2hjqtn0j" path="res://Gnoumagbe/character_body_3d.tscn" id="1_hoy5k"]
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="1_wv7je"]
-[ext_resource type="Texture2D" uid="uid://bqju2j5d3526" path="res://Prototype_Grid_Gray_07-512x512.png" id="2_hp7dp"]
+[ext_resource type="Texture2D" uid="uid://bqju2j5d3526" path="res://Gnoumagbe/Prototype_Grid_Gray_07-512x512.png" id="2_hp7dp"]
 [ext_resource type="Script" uid="uid://cajdveswn36qc" path="res://Gnoumagbe/camera_follow.gd" id="3_f0d2d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_121eh"]
@@ -21,7 +21,6 @@ size = Vector3(0.8, 1, 0.8)
 [sub_resource type="BoxShape3D" id="BoxShape3D_i18n0"]
 
 [node name="Node3D" type="Node3D" unique_id=1233023898]
-script = ExtResource("1_wv7je")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1550433875]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
@@ -64,3 +63,8 @@ shape = SubResource("BoxShape3D_i18n0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1793249338]
 transform = Transform3D(0.87507516, -0.006295069, 0.4839461, -0.2978942, 0.7810646, 0.5488146, -0.381448, -0.62441874, 0.6816149, 9.1282215, 13.129112, 14.880892)
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1809703995 node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.788653, 0, 0)
+script = ExtResource("1_wv7je")
+player = NodePath("../Base")

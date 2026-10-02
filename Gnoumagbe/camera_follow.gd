@@ -7,5 +7,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if player:
-		look_at(player.global_position, Vector3.UP)
+	pass
