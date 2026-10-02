@@ -1,13 +1,14 @@
-[gd_scene format=3 uid="uid://cbdssrq17tehh"]
+[gd_scene format=3 uid="uid://dk0pwi3g46lvl"]
 
-[ext_resource type="PackedScene" uid="uid://di68h2hjqtn0j" path="res://Gnoumagbe/character_body_3d.tscn" id="1_hoy5k"]
-[ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="1_wv7je"]
-[ext_resource type="Texture2D" uid="uid://bqju2j5d3526" path="res://Gnoumagbe/Prototype_Grid_Gray_07-512x512.png" id="2_hp7dp"]
-[ext_resource type="Script" uid="uid://cajdveswn36qc" path="res://Gnoumagbe/camera_follow.gd" id="3_f0d2d"]
-[ext_resource type="Script" uid="uid://b0xfe5apmnbyh" path="res://Gnoumagbe/Next_Level.gd" id="4_trmsh"]
+[ext_resource type="Texture2D" uid="uid://bqju2j5d3526" path="res://Gnoumagbe/Prototype_Grid_Gray_07-512x512.png" id="1_syshm"]
+[ext_resource type="Script" uid="uid://cajdveswn36qc" path="res://Gnoumagbe/camera_follow.gd" id="2_rfktq"]
+[ext_resource type="PackedScene" uid="uid://di68h2hjqtn0j" path="res://Gnoumagbe/character_body_3d.tscn" id="3_0urlm"]
+[ext_resource type="Script" uid="uid://b0xfe5apmnbyh" path="res://Gnoumagbe/Next_Level.gd" id="4_77x7w"]
+[ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="5_xoyoh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_121eh"]
-albedo_texture = ExtResource("2_hp7dp")
+albedo_color = Color(2.7760053, 7.6631465, 17.244516, 0.99607843)
+albedo_texture = ExtResource("1_syshm")
 albedo_texture_force_srgb = true
 uv1_scale = Vector3(2, 2, 2)
 uv1_offset = Vector3(1.5, 1.5, 0)
@@ -34,13 +35,13 @@ mesh = SubResource("PlaneMesh_sgt47")
 transform = Transform3D(0.91195154, 0.20514902, -0.35532853, -1.7598262e-08, 0.86602545, 0.5, 0.41029805, -0.45597574, 0.7897732, -10.427944, 14.704922, 20.463707)
 projection = 1
 size = 16.0
-script = ExtResource("3_f0d2d")
+script = ExtResource("2_rfktq")
 player = NodePath("../../Base")
 
 [node name="Base" type="Node3D" parent="." unique_id=29706887]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.50000006)
 
-[node name="CharacterBody3D" parent="Base" unique_id=1446405869 groups=["Player"] instance=ExtResource("1_hoy5k")]
+[node name="CharacterBody3D" parent="Base" unique_id=1446405869 groups=["Player"] instance=ExtResource("3_0urlm")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=870828702]
 
@@ -50,7 +51,7 @@ shape = SubResource("BoxShape3D_4dcoa")
 
 [node name="End" type="Area3D" parent="." unique_id=1414639940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8950696, -0.5, 0)
-script = ExtResource("4_trmsh")
+script = ExtResource("4_77x7w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="End" unique_id=527730005]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0242152, 0)
@@ -68,7 +69,7 @@ transform = Transform3D(0.87507516, -0.006295069, 0.4839461, -0.2978942, 0.78106
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1809703995 node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.788653, 0, 0)
-script = ExtResource("1_wv7je")
+script = ExtResource("5_xoyoh")
 player = NodePath("../Base")
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
