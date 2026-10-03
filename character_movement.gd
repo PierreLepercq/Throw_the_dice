@@ -5,19 +5,20 @@ extends RigidBody3D
 var cube_size = 1.0
 var speed = 4.0
 var rolling = false
+var green = "top" 
 
 func _physics_process(delta: float) -> void:
 	var forward = Vector3.FORWARD
 	if Input.is_action_pressed("ui_up"):
-		roll(forward)
+		roll(forward, "up")
 	if Input.is_action_pressed("ui_down"):
-		roll(-forward)
+		roll(-forward, "down")
 	if Input.is_action_pressed("ui_right"):
-		roll(forward.cross(Vector3.UP))
+		roll(forward.cross(Vector3.UP), "right")
 	if Input.is_action_pressed("ui_left"):
-		roll(-forward.cross(Vector3.UP))
+		roll(-forward.cross(Vector3.UP), "left")
 
-func roll(dir) -> void:
+func roll(dir, direction_name) -> void:
 	if rolling:
 		return
 	rolling = true
@@ -30,7 +31,8 @@ func roll(dir) -> void:
 	tween.tween_property(pivot, "transform",
 		pivot.transform.rotated_local(axis, PI/2), 1 / speed)
 	await tween.finished
-
+	
+	green = DiceRoll.green_pos(green, direction_name)
 	transform.origin += dir * cube_size
 	var b = mesh.global_transform.basis
 	pivot.transform = Transform3D.IDENTITY

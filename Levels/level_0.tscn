@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b0xfe5apmnbyh" path="res://Gnoumagbe/Next_Level.gd" id="4_sfv2l"]
 [ext_resource type="MeshLibrary" uid="uid://dhpboimaq38u0" path="res://tiles.tres" id="5_5pqfd"]
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="5_edwcp"]
+[ext_resource type="Script" uid="uid://clwuc3dlrcwk5" path="res://tools/level_solver.gd" id="6_am1cx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
 
@@ -27,7 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.50000006)
 [node name="CharacterBody3D" parent="Base" unique_id=1446405869 groups=["Player"] instance=ExtResource("3_hipi8")]
 
 [node name="End" type="Area3D" parent="." unique_id=1414639940]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, -3.5)
 script = ExtResource("4_sfv2l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="End" unique_id=527730005]
@@ -41,7 +42,7 @@ transform = Transform3D(30, 0, 0, 0, 5, 0, 0, 0, 30, 0, 0, 0)
 shape = SubResource("BoxShape3D_i18n0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1793249338]
-transform = Transform3D(0.87507516, -0.006295069, 0.4839461, -0.2978942, 0.7810646, 0.5488146, -0.381448, -0.62441874, 0.6816149, 9.1282215, 13.129112, 14.880892)
+transform = Transform3D(0.3814479, 0.6244186, -0.6816149, -0.29789418, 0.78106445, 0.5488144, 0.87507504, -0.006295063, 0.48394608, -21.57178, 13.129112, 14.880892)
 
 [node name="Start" type="Node3D" parent="." unique_id=1809703995 node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
@@ -53,7 +54,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh_library = ExtResource("5_5pqfd")
 cell_size = Vector3(1, 1, 1)
 data = {
-"cells": PackedInt32Array(0, 0, 0, 0, 65534, 0, 0, 65535, 1, 1, 65534, 1, 2, 65534, 0, 3, 65534, 1, 4, 65534, 0)
+"cells": PackedInt32Array(0, 0, 0, 0, 65534, 0, 0, 65535, 3, 0, 65532, 3, 1, 65532, 3, 2, 65532, 3, 3, 65532, 3, 4, 65532, 2, 0, 65533, 3)
 }
+
+[node name="Node" type="Node" parent="." unique_id=802309906 node_paths=PackedStringArray("grid", "start", "goal")]
+script = ExtResource("6_am1cx")
+grid = NodePath("../GridMap")
+start = NodePath("../Start")
+goal = NodePath("../End")
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
