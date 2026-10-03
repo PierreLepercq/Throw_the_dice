@@ -2,23 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://di68h2hjqtn0j" path="res://Gnoumagbe/character_body_3d.tscn" id="1_hoy5k"]
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="1_wv7je"]
-[ext_resource type="Texture2D" uid="uid://bqju2j5d3526" path="res://Gnoumagbe/Prototype_Grid_Gray_07-512x512.png" id="2_hp7dp"]
 [ext_resource type="Script" uid="uid://cajdveswn36qc" path="res://Gnoumagbe/camera_follow.gd" id="3_f0d2d"]
 [ext_resource type="Script" uid="uid://b0xfe5apmnbyh" path="res://Gnoumagbe/Next_Level.gd" id="4_trmsh"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_121eh"]
-albedo_texture = ExtResource("2_hp7dp")
-albedo_texture_force_srgb = true
-uv1_scale = Vector3(2, 2, 2)
-uv1_offset = Vector3(1.5, 1.5, 0)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_sgt47"]
+[ext_resource type="AudioStream" uid="uid://ck02jxedpl5so" path="res://indice.mp3" id="6_xbbor"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i18n0"]
 
-[node name="Node3D" type="Node3D" unique_id=1233023898]
+[node name="Node3D2" type="Node3D" unique_id=1233023898]
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=108885379]
 
@@ -56,5 +48,9 @@ transform = Transform3D(0.6577372, 0.5846086, -0.47498906, -0.2978942, 0.7810644
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 script = ExtResource("1_wv7je")
 player = NodePath("../Base")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=682989528]
+stream = ExtResource("6_xbbor")
+autoplay = true
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]

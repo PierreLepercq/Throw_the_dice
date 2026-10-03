@@ -1,12 +1,19 @@
 [gd_scene format=3 uid="uid://di68h2hjqtn0j"]
 
 [ext_resource type="Script" uid="uid://d3cbj7hrrlfct" path="res://character_movement.gd" id="1_sgu3n"]
+[ext_resource type="AudioStream" uid="uid://du34spgq502qa" path="res://Do-rev.mp3" id="2_7bqfq"]
 [ext_resource type="PackedScene" uid="uid://ov2wrgc30pa5" path="res://assets/3d/Dice.fbx" id="2_wjg2j"]
+[ext_resource type="AudioStream" uid="uid://bw2dhisymgh41" path="res://Fa-rev.mp3" id="3_p8lsu"]
+[ext_resource type="AudioStream" uid="uid://cl243tnydfeds" path="res://La-rev.mp3" id="4_55ca1"]
+[ext_resource type="AudioStream" uid="uid://bclubyq471ljh" path="res://Mi-rev.mp3" id="5_7ky8h"]
+[ext_resource type="AudioStream" uid="uid://ch0nehcf551oy" path="res://Ré-rev.mp3" id="6_qcko8"]
+[ext_resource type="AudioStream" uid="uid://bfafb2qa86cbn" path="res://Sol-rev.mp3" id="7_0kmqe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gk8nk"]
 
 [node name="RigidBody3D" type="RigidBody3D" unique_id=794481308]
 script = ExtResource("1_sgu3n")
+sons_de = Array[AudioStream]([ExtResource("2_7bqfq"), ExtResource("3_p8lsu"), ExtResource("4_55ca1"), ExtResource("5_7ky8h"), ExtResource("6_qcko8"), ExtResource("7_0kmqe")])
 
 [node name="Pivot" type="Node3D" parent="." unique_id=976819131]
 
@@ -16,3 +23,5 @@ transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1576795103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_gk8nk")
+
+[node name="DicePlayer" type="AudioStreamPlayer" parent="." unique_id=1105023794]
