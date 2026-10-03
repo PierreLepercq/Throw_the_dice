@@ -26,8 +26,7 @@ func cell_of(node: Node3D) -> Vector2i:
 	return Vector2i(map_position.x, map_position.z)
 
 # to solve, we try every possible move.
-# We add "situation": where the dice is + where the green face is.
-# We never look at the same situation twice, otherwise we would loop forever.
+# We never look at the same situation twice, otherwise it loops forever
 func solve() -> void:
 	if grid == null or start == null or goal == null:
 		print("Solver: drag the GridMap, Start and End nodes into the Inspector first.")
@@ -72,5 +71,5 @@ func print_solution(moves: Array) -> void:
 	var text = ""
 	for move in moves:
 		text += move + " "
-	print("Solver: solvable in ", moves.size(), " moves (shortest).")
-	print("        ", text)
+	print("Solvable in ", moves.size(), " moves!")
+	print("Solution: ", text)
