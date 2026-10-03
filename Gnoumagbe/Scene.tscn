@@ -20,12 +20,6 @@ uv1_offset = Vector3(1.5, 1.5, 0)
 
 [node name="Node3D" type="Node3D" unique_id=1233023898]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1550433875 groups=["Player"]]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-visible = false
-material_override = SubResource("StandardMaterial3D_121eh")
-mesh = SubResource("PlaneMesh_sgt47")
-
 [node name="CameraPivot" type="Node3D" parent="." unique_id=108885379]
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1939474585 node_paths=PackedStringArray("player")]
@@ -39,12 +33,6 @@ player = NodePath("../../Base")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.50000006)
 
 [node name="CharacterBody3D" parent="Base" unique_id=1446405869 groups=["Player"] instance=ExtResource("1_hoy5k")]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=870828702]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2104924402]
-transform = Transform3D(20, 0, 0, 0, 0.5, 0, 0, 0, 20, 5.9604645e-07, -0.25, 5.9604645e-07)
-shape = SubResource("BoxShape3D_4dcoa")
 
 [node name="End" type="Area3D" parent="." unique_id=1414639940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8950696, -0.5, 0)

@@ -1,7 +1,7 @@
 extends Control
 
 func play():
-	get_tree().change_scene_to_file('res://Gnoumagbe/Scene.tscn')
+	get_tree().change_scene_to_file('res://Levels/level_0.tscn')
 
 func exit():
 	get_tree().quit()
