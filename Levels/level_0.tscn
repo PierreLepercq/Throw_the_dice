@@ -2,13 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cajdveswn36qc" path="res://Gnoumagbe/camera_follow.gd" id="2_sl8k4"]
 [ext_resource type="PackedScene" uid="uid://di68h2hjqtn0j" path="res://Gnoumagbe/character_body_3d.tscn" id="3_hipi8"]
+[ext_resource type="Script" uid="uid://d1sut5wl5kwbk" path="res://Levels/kill.gd" id="4_am1cx"]
 [ext_resource type="Script" uid="uid://b0xfe5apmnbyh" path="res://Gnoumagbe/Next_Level.gd" id="4_sfv2l"]
 [ext_resource type="MeshLibrary" uid="uid://dhpboimaq38u0" path="res://tiles.tres" id="5_5pqfd"]
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="5_edwcp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_i18n0"]
 
 [node name="Node3D" type="Node3D" unique_id=1233023898]
 
@@ -33,13 +32,6 @@ script = ExtResource("4_sfv2l")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="End" unique_id=527730005]
 shape = SubResource("BoxShape3D_4ye73")
 
-[node name="Fail" type="Area3D" parent="." unique_id=1788487326]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.5893407, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fail" unique_id=1015245611]
-transform = Transform3D(30, 0, 0, 0, 5, 0, 0, 0, 30, 0, 0, 0)
-shape = SubResource("BoxShape3D_i18n0")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1793249338]
 transform = Transform3D(0.87507516, -0.006295069, 0.4839461, -0.2978942, 0.7810646, 0.5488146, -0.381448, -0.62441874, 0.6816149, 9.1282215, 13.129112, 14.880892)
 
@@ -56,4 +48,13 @@ data = {
 "cells": PackedInt32Array(0, 0, 0, 0, 65534, 0, 0, 65535, 1, 1, 65534, 1, 2, 65534, 0, 3, 65534, 1, 4, 65534, 0)
 }
 
+[node name="DeadZone" type="Area3D" parent="." unique_id=1612040949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+script = ExtResource("4_am1cx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeadZone" unique_id=1099741995]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("BoxShape3D_4ye73")
+
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
+[connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_body_entered"]
