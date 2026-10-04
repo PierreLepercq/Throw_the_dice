@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="5_xoyoh"]
 [ext_resource type="Script" uid="uid://clwuc3dlrcwk5" path="res://tools/level_solver.gd" id="6_0urlm"]
 [ext_resource type="PackedScene" uid="uid://16uixv3anms8" path="res://Gnoumagbe/Background.tscn" id="8_77x7w"]
+[ext_resource type="PackedScene" uid="uid://m3jnwv7xxa0n" path="res://Emma/Assets/LEVEL_1.fbx" id="9_xoyoh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
 
@@ -28,7 +29,6 @@ player = NodePath("../../Base")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.50000006)
 
 [node name="CharacterBody3D" parent="Base" unique_id=1446405869 groups=["Player"] instance=ExtResource("3_0urlm")]
-max_moves = 25
 
 [node name="End" type="Area3D" parent="." unique_id=1414639940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.504931, -0.5, 0.5)
@@ -55,6 +55,7 @@ player = NodePath("../Base")
 
 [node name="GridMap" type="GridMap" parent="." unique_id=289014188]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
 mesh_library = ExtResource("5_rfktq")
 cell_size = Vector3(1, 1, 1)
 data = {
@@ -69,6 +70,9 @@ goal = NodePath("../End")
 
 [node name="MeshInstance3D" parent="." unique_id=692236584 instance=ExtResource("8_77x7w")]
 transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 16.5, 7.5, -23)
+
+[node name="LEVEL_1" parent="." unique_id=665884204 instance=ExtResource("9_xoyoh")]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 23.54, -0.45, 0.5)
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
 [connection signal="body_entered" from="Fail" to="Fail" method="_on_body_entered"]
