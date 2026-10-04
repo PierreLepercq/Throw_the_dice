@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://fdv262dg1sxg"]
+
+[ext_resource type="Shader" uid="uid://t1hegxn1pa1a" path="res://Gnoumagbe/water.gdshader" id="1_0hfys"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sgt47"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_004rg"]
+noise_type = 3
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ubtm4"]
+noise = SubResource("FastNoiseLite_004rg")
+seamless = true
+as_normal_map = true
+bump_strength = 2.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_c4k6n"]
+noise_type = 3
+seed = 10
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xnpeg"]
+noise = SubResource("FastNoiseLite_c4k6n")
+seamless = true
+as_normal_map = true
+bump_strength = 1.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pt6yw"]
+render_priority = 0
+shader = ExtResource("1_0hfys")
+shader_parameter/albedo = Color(8.856058e-06, 0.6602545, 0.9667147, 1)
+shader_parameter/albedo2 = Color(1, 0, 1, 1)
+shader_parameter/metalic = 0.0
+shader_parameter/roughness = 0.02000000095
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_ubtm4")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_xnpeg")
+shader_parameter/wave_direction = Vector2(2, 0)
+shader_parameter/wave_direction2 = Vector2(2, 0)
+shader_parameter/time_scale = 0.0
+shader_parameter/color_deep = Color(0, 0, 0, 1)
+shader_parameter/color_swallow = Color(0, 0, 0, 1)
+shader_parameter/beers_law = 2.0
+shader_parameter/depth_offset = 2.0
+shader_parameter/edge_scale = 0.1
+shader_parameter/near = 1.0
+shader_parameter/far = 100.0
+shader_parameter/edge_color = Color(0, 0, 0, 1)
+
+[node name="Shaders" type="Node3D" unique_id=2142376859]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1703933757]
+mesh = SubResource("BoxMesh_sgt47")
+surface_material_override/0 = SubResource("ShaderMaterial_pt6yw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1953593813]
+light_energy = 2.0
