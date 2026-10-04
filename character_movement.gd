@@ -1,6 +1,10 @@
 extends RigidBody3D
 @onready var pivot = $Pivot
 @onready var mesh = $Pivot/Mesh
+@onready var audio_player = $AudioStreamPlayer
+
+
+@export var sons_de: Array[AudioStream] = []
 
 var cube_size = 1.0
 var speed = 4.0
@@ -23,6 +27,10 @@ func roll(dir, direction_name) -> void:
 		return
 	rolling = true
 
+	if not sons_de.is_empty():
+		audio_player.stream = sons_de.pick_random()
+		audio_player.play()
+
 	pivot.translate(dir * cube_size / 2)
 	mesh.global_translate(-dir * cube_size / 2)
 
@@ -41,9 +49,7 @@ func roll(dir, direction_name) -> void:
 	rolling = false
 
 func _ready() -> void:
-	pass # Replace with function body.
+	pass 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
