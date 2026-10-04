@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cajdveswn36qc" path="res://Gnoumagbe/camera_follow.gd" id="2_rfktq"]
 [ext_resource type="PackedScene" uid="uid://di68h2hjqtn0j" path="res://Gnoumagbe/character_body_3d.tscn" id="3_0urlm"]
+[ext_resource type="Script" uid="uid://d1sut5wl5kwbk" path="res://Levels/kill.gd" id="4_0urlm"]
 [ext_resource type="Script" uid="uid://b0xfe5apmnbyh" path="res://Gnoumagbe/Next_Level.gd" id="4_77x7w"]
 [ext_resource type="MeshLibrary" uid="uid://dhpboimaq38u0" path="res://tiles.tres" id="5_rfktq"]
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="5_xoyoh"]
@@ -37,6 +38,7 @@ shape = SubResource("BoxShape3D_4ye73")
 
 [node name="Fail" type="Area3D" parent="." unique_id=1788487326]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.5893407, 0)
+script = ExtResource("4_0urlm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fail" unique_id=1015245611]
 transform = Transform3D(30, 0, 0, 0, 5, 0, 0, 0, 30, 0, 0, 0)
@@ -65,3 +67,4 @@ start = NodePath("../Start")
 goal = NodePath("../End")
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
+[connection signal="body_entered" from="Fail" to="Fail" method="_on_body_entered"]

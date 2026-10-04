@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://clwuc3dlrcwk5" path="res://tools/level_solver.gd" id="6_am1cx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
+size = Vector3(1, 1, 1.5)
 
 [node name="Node3D" type="Node3D" unique_id=1233023898]
 
@@ -61,7 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
 script = ExtResource("4_am1cx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeadZone" unique_id=1099741995]
-transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 10, 4.000001, 0, -1.4999998)
 shape = SubResource("BoxShape3D_4ye73")
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]

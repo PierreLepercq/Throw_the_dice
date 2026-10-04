@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cajdveswn36qc" path="res://Gnoumagbe/camera_follow.gd" id="1_uwxw1"]
 [ext_resource type="PackedScene" uid="uid://di68h2hjqtn0j" path="res://Gnoumagbe/character_body_3d.tscn" id="2_ay5qi"]
 [ext_resource type="Script" uid="uid://b0xfe5apmnbyh" path="res://Gnoumagbe/Next_Level.gd" id="3_fa81k"]
+[ext_resource type="Script" uid="uid://d1sut5wl5kwbk" path="res://Levels/kill.gd" id="4_ay5qi"]
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="4_ck3gp"]
 [ext_resource type="MeshLibrary" uid="uid://dhpboimaq38u0" path="res://tiles.tres" id="5_trpa2"]
 [ext_resource type="Script" uid="uid://clwuc3dlrcwk5" path="res://tools/level_solver.gd" id="6_4t7ew"]
@@ -10,6 +11,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i18n0"]
+size = Vector3(0.8, 1, 1)
 
 [node name="Node3D" type="Node3D" unique_id=1233023898]
 
@@ -37,9 +39,10 @@ shape = SubResource("BoxShape3D_4ye73")
 
 [node name="Fail" type="Area3D" parent="." unique_id=1788487326]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.5893407, 0)
+script = ExtResource("4_ay5qi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fail" unique_id=1015245611]
-transform = Transform3D(30, 0, 0, 0, 5, 0, 0, 0, 30, 0, 0, 0)
+transform = Transform3D(30, 0, 0, 0, 5, 0, 0, 0, 30, -2.9999995, 0, 0)
 shape = SubResource("BoxShape3D_i18n0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1793249338]
@@ -65,3 +68,4 @@ start = NodePath("../Start")
 goal = NodePath("../End")
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
+[connection signal="body_entered" from="Fail" to="Fail" method="_on_body_entered"]
