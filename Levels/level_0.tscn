@@ -7,8 +7,30 @@
 [ext_resource type="MeshLibrary" uid="uid://dhpboimaq38u0" path="res://tiles.tres" id="5_5pqfd"]
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="5_edwcp"]
 [ext_resource type="Script" uid="uid://clwuc3dlrcwk5" path="res://tools/level_solver.gd" id="6_am1cx"]
+[ext_resource type="Texture2D" uid="uid://cgojh63ouump6" path="res://Gnoumagbe/sky.png" id="8_kiobq"]
+[ext_resource type="Shader" uid="uid://cx1xxhk8ikssy" path="res://Levelscloud.tres" id="9_75g3n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
+size = Vector3(1, 1, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75g3n"]
+albedo_texture = ExtResource("8_kiobq")
+emission_enabled = true
+emission_energy_multiplier = 0.33
+emission_texture = ExtResource("8_kiobq")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sgt47"]
+size = Vector2(80, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hordx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ujhgb"]
+render_priority = 0
+shader = ExtResource("9_75g3n")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rgs30"]
+material = SubResource("ShaderMaterial_ujhgb")
+size = Vector2(40, 40)
 
 [node name="Node3D" type="Node3D" unique_id=1233023898]
 
@@ -17,7 +39,9 @@
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1939474585 node_paths=PackedStringArray("player")]
 transform = Transform3D(0.91195154, 0.20514902, -0.35532853, -1.7598262e-08, 0.86602545, 0.5, 0.41029805, -0.45597574, 0.7897732, -7.927944, 14.704922, 20.463707)
 projection = 1
+current = true
 size = 16.0
+far = 1000000.0
 script = ExtResource("2_sl8k4")
 player = NodePath("../../Base")
 
@@ -25,6 +49,7 @@ player = NodePath("../../Base")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.50000006)
 
 [node name="CharacterBody3D" parent="Base" unique_id=1446405869 groups=["Player"] instance=ExtResource("3_hipi8")]
+max_moves = 8
 
 [node name="End" type="Area3D" parent="." unique_id=1414639940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, -3.5)
@@ -60,8 +85,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
 script = ExtResource("4_am1cx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeadZone" unique_id=1099741995]
-transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 10, 4.000001, 0, -1.4999998)
 shape = SubResource("BoxShape3D_4ye73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1313508718]
+transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 16.5, 7.5, -23)
+material_override = SubResource("StandardMaterial3D_75g3n")
+mesh = SubResource("PlaneMesh_sgt47")
+surface_material_override/0 = SubResource("StandardMaterial3D_hordx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1163451235]
+transform = Transform3D(0.99999976, 8.940697e-08, -7.450581e-09, 0, 0.99999994, -7.4505806e-08, -7.450581e-09, -2.9802322e-08, 0.99999994, 0.14652824, 1.5417671, 9.385662)
+mesh = SubResource("PlaneMesh_rgs30")
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
 [connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_body_entered"]

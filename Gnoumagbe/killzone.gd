@@ -9,6 +9,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
-		get_tree().call_deferred("reload_current_scene")
+		var current_scene_file = get_tree().current_scene.scene_file_path
+		get_tree().call_deferred("change_scene_to_file", current_scene_file)
+		print("caca")

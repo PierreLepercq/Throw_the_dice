@@ -1,17 +1,27 @@
 extends RigidBody3D
+
 @onready var pivot = $Pivot
 @onready var mesh = $Pivot/Mesh
 @onready var audio_player = $AudioStreamPlayer
 
-
 @export var sons_de: Array[AudioStream] = []
+
+@export var max_moves = 10
+var moves = 0
+var out_of_moves = false
 
 var cube_size = 1.0
 var speed = 4.0
 var rolling = false
 var green = "top" 
 
+func _ready() -> void:
+	update_moves_label()
+	$FailTimer.timeout.connect(_on_fail_timer_timeout)
+
 func _physics_process(delta: float) -> void:
+	if out_of_moves:
+		return
 	var forward = Vector3.FORWARD
 	if Input.is_action_pressed("ui_up"):
 		roll(forward, "up")
@@ -41,15 +51,26 @@ func roll(dir, direction_name) -> void:
 	await tween.finished
 	
 	green = DiceRoll.green_pos(green, direction_name)
+	
 	transform.origin += dir * cube_size
 	var b = mesh.global_transform.basis
 	pivot.transform = Transform3D.IDENTITY
 	mesh.position = Vector3(0, cube_size / 2, 0)
 	mesh.global_transform.basis = b
 	rolling = false
+	moves += 1
+	update_moves_label()
+	if moves >= max_moves:
+		out_of_moves = true
+		$FailTimer.start()
 
-func _ready() -> void:
-	pass 
+func update_moves_label() -> void:
+	$HUD/Moves.text = "Moves: " + str(moves) + " / " + str(max_moves)
+
+func _on_fail_timer_timeout() -> void:
+	$HUD/Fail.visible = true
+	await get_tree().create_timer(1.5).timeout 
+	get_tree().reload_current_scene()
 
 func _process(delta: float) -> void:
 	pass

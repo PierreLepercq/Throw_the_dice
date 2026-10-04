@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vdgy7g8bmrkq"
-path.s3tc="res://.godot/imported/p2rpfZc.jpg-6c10b475cf6eee76335e922c6ca99b65.s3tc.ctex"
+uid="uid://bxjqwwpvsu6os"
+path.s3tc="res://.godot/imported/cloud.png-f88c8ec4e7c50ac69212b454cb8cc6ca.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Gnoumagbe/p2rpfZc.jpg"
-dest_files=["res://.godot/imported/p2rpfZc.jpg-6c10b475cf6eee76335e922c6ca99b65.s3tc.ctex"]
+source_file="res://Gnoumagbe/cloud.png"
+dest_files=["res://.godot/imported/cloud.png-f88c8ec4e7c50ac69212b454cb8cc6ca.s3tc.ctex"]
 
 [params]
 
