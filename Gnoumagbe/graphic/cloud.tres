@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" format=3 uid="uid://bst7l2d84tqgu"]
 
-[ext_resource type="Texture2D" uid="uid://vdgy7g8bmrkq" path="res://Gnoumagbe/p2rpfZc.jpg" id="1_1fo8b"]
+[ext_resource type="Texture2D" uid="uid://vdgy7g8bmrkq" path="res://Gnoumagbe/graphic/p2rpfZc.jpg" id="1_1fo8b"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ur1iw"]
 expanded_output_ports = [0]

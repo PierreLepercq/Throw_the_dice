@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="4_ck3gp"]
 [ext_resource type="MeshLibrary" uid="uid://dhpboimaq38u0" path="res://tiles.tres" id="5_trpa2"]
 [ext_resource type="Script" uid="uid://clwuc3dlrcwk5" path="res://tools/level_solver.gd" id="6_4t7ew"]
-[ext_resource type="PackedScene" uid="uid://16uixv3anms8" path="res://Gnoumagbe/Background.tscn" id="8_fa81k"]
+[ext_resource type="PackedScene" uid="uid://16uixv3anms8" path="res://Gnoumagbe/graphic/Background.tscn" id="8_fa81k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://7g1rtf1cfg70"]
 
 [ext_resource type="Script" uid="uid://ohadvh660wxk" path="res://Gnoumagbe/main_menu.gd" id="1_21aox"]
-[ext_resource type="Texture2D" uid="uid://vdgy7g8bmrkq" path="res://Gnoumagbe/p2rpfZc.jpg" id="2_lop6u"]
+[ext_resource type="Texture2D" uid="uid://vdgy7g8bmrkq" path="res://Gnoumagbe/graphic/p2rpfZc.jpg" id="2_lop6u"]
 
 [node name="MainMenu" type="Control" unique_id=1787059775]
 layout_mode = 3

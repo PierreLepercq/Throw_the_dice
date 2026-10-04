@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgojh63ouump6"
-path.s3tc="res://.godot/imported/sky.png-edcb7fed25780fff5c173f06234da622.s3tc.ctex"
+uid="uid://bqju2j5d3526"
+path.s3tc="res://.godot/imported/Prototype_Grid_Gray_07-512x512.png-4123fc0256e34eba6b0739e45fb3c454.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Gnoumagbe/sky.png"
-dest_files=["res://.godot/imported/sky.png-edcb7fed25780fff5c173f06234da622.s3tc.ctex"]
+source_file="res://Gnoumagbe/graphic/Prototype_Grid_Gray_07-512x512.png"
+dest_files=["res://.godot/imported/Prototype_Grid_Gray_07-512x512.png-4123fc0256e34eba6b0739e45fb3c454.s3tc.ctex"]
 
 [params]
 
