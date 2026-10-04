@@ -17,7 +17,7 @@
 [node name="CameraPivot" type="Node3D" parent="." unique_id=108885379]
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1939474585 node_paths=PackedStringArray("player")]
-transform = Transform3D(0.91195154, 0.20514902, -0.35532853, -1.7598262e-08, 0.86602545, 0.5, 0.41029805, -0.45597574, 0.7897732, -10.427944, 14.704922, 20.463707)
+transform = Transform3D(0.91195154, 0.20514902, -0.35532853, -1.7598262e-08, 0.86602545, 0.5, 0.41029805, -0.45597574, 0.7897732, -12.527945, 14.704922, 20.463707)
 projection = 1
 size = 16.0
 script = ExtResource("1_fbld2")
@@ -27,7 +27,6 @@ player = NodePath("../../Base")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.50000006)
 
 [node name="CharacterBody3D" parent="Base" unique_id=1446405869 groups=["Player"] instance=ExtResource("2_s275v")]
-max_moves = 25
 
 [node name="End" type="Area3D" parent="." unique_id=1414639940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5049305, -0.5, -3.4999998)
