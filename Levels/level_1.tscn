@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="5_xoyoh"]
 [ext_resource type="Script" uid="uid://clwuc3dlrcwk5" path="res://tools/level_solver.gd" id="6_0urlm"]
 [ext_resource type="PackedScene" uid="uid://16uixv3anms8" path="res://Gnoumagbe/graphic/Background.tscn" id="8_77x7w"]
+[ext_resource type="PackedScene" uid="uid://m3jnwv7xxa0n" path="res://Emma/Assets/LEVEL_1.fbx" id="9_xoyoh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
 
