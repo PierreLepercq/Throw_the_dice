@@ -1,33 +1,17 @@
 [gd_scene format=3 uid="uid://dk0pwi3g46lvl"]
 
-[ext_resource type="Texture2D" uid="uid://bqju2j5d3526" path="res://Gnoumagbe/Prototype_Grid_Gray_07-512x512.png" id="1_syshm"]
 [ext_resource type="Script" uid="uid://cajdveswn36qc" path="res://Gnoumagbe/camera_follow.gd" id="2_rfktq"]
 [ext_resource type="PackedScene" uid="uid://di68h2hjqtn0j" path="res://Gnoumagbe/character_body_3d.tscn" id="3_0urlm"]
 [ext_resource type="Script" uid="uid://b0xfe5apmnbyh" path="res://Gnoumagbe/Next_Level.gd" id="4_77x7w"]
+[ext_resource type="MeshLibrary" uid="uid://dhpboimaq38u0" path="res://tiles.tres" id="5_rfktq"]
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="5_xoyoh"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_121eh"]
-albedo_color = Color(2.7760053, 7.6631465, 17.244516, 0.99607843)
-albedo_texture = ExtResource("1_syshm")
-albedo_texture_force_srgb = true
-uv1_scale = Vector3(2, 2, 2)
-uv1_offset = Vector3(1.5, 1.5, 0)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_sgt47"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4dcoa"]
-size = Vector3(0.8, 1, 0.8)
+[ext_resource type="Script" uid="uid://clwuc3dlrcwk5" path="res://tools/level_solver.gd" id="6_0urlm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i18n0"]
 
 [node name="Node3D" type="Node3D" unique_id=1233023898]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1550433875 groups=["Player"]]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_121eh")
-mesh = SubResource("PlaneMesh_sgt47")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=108885379]
 
@@ -43,18 +27,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.50000006)
 
 [node name="CharacterBody3D" parent="Base" unique_id=1446405869 groups=["Player"] instance=ExtResource("3_0urlm")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=870828702]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2104924402]
-transform = Transform3D(20, 0, 0, 0, 0.5, 0, 0, 0, 20, 5.9604645e-07, -0.25, 5.9604645e-07)
-shape = SubResource("BoxShape3D_4dcoa")
-
 [node name="End" type="Area3D" parent="." unique_id=1414639940]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8950696, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.504931, -0.5, 0.5)
 script = ExtResource("4_77x7w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="End" unique_id=527730005]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0242152, 0)
 shape = SubResource("BoxShape3D_4ye73")
 
 [node name="Fail" type="Area3D" parent="." unique_id=1788487326]
@@ -65,11 +42,25 @@ transform = Transform3D(30, 0, 0, 0, 5, 0, 0, 0, 30, 0, 0, 0)
 shape = SubResource("BoxShape3D_i18n0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1793249338]
-transform = Transform3D(0.87507516, -0.006295069, 0.4839461, -0.2978942, 0.7810646, 0.5488146, -0.381448, -0.62441874, 0.6816149, 9.1282215, 13.129112, 14.880892)
+transform = Transform3D(0.22369769, 0.6160253, -0.75529593, -0.29789418, 0.7810645, 0.54881436, 0.92801857, 0.10222979, 0.35823274, -21.07178, 13.129112, 14.880892)
 
-[node name="Node3D" type="Node3D" parent="." unique_id=1809703995 node_paths=PackedStringArray("player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.788653, 0, 0)
+[node name="Start" type="Node3D" parent="." unique_id=1809703995 node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 script = ExtResource("5_xoyoh")
 player = NodePath("../Base")
+
+[node name="GridMap" type="GridMap" parent="." unique_id=289014188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh_library = ExtResource("5_rfktq")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(0, 0, 3, 0, 65535, 3, 0, 65534, 3, 1, 65534, 3, 2, 65534, 3, 3, 65532, 3, 3, 65533, 3, 3, 65531, 3, 2, 65531, 3, 1, 65530, 3, 2, 65530, 3, 3, 65530, 3, 65533, 65530, 3, 3, 65534, 3, 65533, 65534, 3, 65533, 65535, 3, 65533, 0, 2, 65533, 65533, 3, 65533, 65532, 3, 65533, 65531, 3, 65535, 65529, 3, 0, 65529, 3, 1, 65529, 3, 65534, 65529, 3, 65533, 65529, 1441795, 65532, 65530, 1441795, 65532, 65529, 1441795)
+}
+
+[node name="Node" type="Node" parent="." unique_id=2053323594 node_paths=PackedStringArray("grid", "start", "goal")]
+script = ExtResource("6_0urlm")
+grid = NodePath("../GridMap")
+start = NodePath("../Start")
+goal = NodePath("../End")
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
