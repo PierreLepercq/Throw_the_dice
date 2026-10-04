@@ -1,0 +1,51 @@
+[gd_resource type="VisualShader" format=3 uid="uid://bst7l2d84tqgu"]
+
+[ext_resource type="Texture2D" uid="uid://vdgy7g8bmrkq" path="res://Gnoumagbe/p2rpfZc.jpg" id="1_1fo8b"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ur1iw"]
+expanded_output_ports = [0]
+texture = ExtResource("1_1fo8b")
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_j73du"]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_2ojlg"]
+output_port_for_preview = 0
+expanded_output_ports = [0]
+texture = ExtResource("1_1fo8b")
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_ur1iw"]
+output_port_for_preview = 0
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_j73du"]
+output_port_for_preview = 0
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_1nwl6"]
+output_port_for_preview = 0
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 0, 0)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_hn5k7"]
+input_name = "time"
+
+[resource]
+nodes/vertex/2/node = SubResource("VisualShaderNodeTexture_2ojlg")
+nodes/vertex/2/position = Vector2(0, 192)
+nodes/vertex/3/node = SubResource("VisualShaderNodeVectorOp_ur1iw")
+nodes/vertex/3/position = Vector2(-320, 304)
+nodes/vertex/4/node = SubResource("VisualShaderNodeInput_j73du")
+nodes/vertex/4/position = Vector2(-768, 80)
+nodes/vertex/5/node = SubResource("VisualShaderNodeVectorOp_1nwl6")
+nodes/vertex/5/position = Vector2(-704, 432)
+nodes/vertex/6/node = SubResource("VisualShaderNodeInput_hn5k7")
+nodes/vertex/6/position = Vector2(-1088, 464)
+nodes/vertex/connections = PackedInt32Array(4, 0, 3, 0, 5, 0, 3, 1, 6, 0, 5, 0, 2, 0, 0, 0)
+nodes/fragment/0/position = Vector2(256, 624)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_ur1iw")
+nodes/fragment/2/position = Vector2(-112, 192)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorConstant_j73du")
+nodes/fragment/3/position = Vector2(-112, 624)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 0)

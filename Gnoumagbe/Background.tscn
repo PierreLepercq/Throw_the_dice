@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://16uixv3anms8"]
+
+[ext_resource type="Texture2D" uid="uid://cgojh63ouump6" path="res://Gnoumagbe/sky.png" id="1_jiqny"]
+[ext_resource type="Shader" uid="uid://cx1xxhk8ikssy" path="res://Levelscloud.tres" id="2_b7m6s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75g3n"]
+albedo_texture = ExtResource("1_jiqny")
+emission_enabled = true
+emission_energy_multiplier = 0.33
+emission_texture = ExtResource("1_jiqny")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sgt47"]
+size = Vector2(80, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hordx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ujhgb"]
+render_priority = 0
+shader = ExtResource("2_b7m6s")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rgs30"]
+material = SubResource("ShaderMaterial_ujhgb")
+size = Vector2(40, 40)
+
+[node name="MeshInstance3D" type="MeshInstance3D" unique_id=692236584]
+transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_75g3n")
+mesh = SubResource("PlaneMesh_sgt47")
+surface_material_override/0 = SubResource("StandardMaterial3D_hordx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2045056212]
+transform = Transform3D(0.99999976, 8.940697e-08, -7.450581e-09, 0, 0.99999994, -7.4505806e-08, -7.450581e-09, -2.9802322e-08, 0.99999994, 0.14652824, 1.5417671, 9.385662)
+mesh = SubResource("PlaneMesh_rgs30")
