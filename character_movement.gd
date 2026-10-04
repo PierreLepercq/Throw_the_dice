@@ -3,6 +3,7 @@ extends RigidBody3D
 @onready var pivot = $Pivot
 @onready var mesh = $Pivot/Mesh
 @onready var audio_player = $AudioStreamPlayer
+@onready var rolling_audio = $RollingAudioPlayer # Le nouveau lecteur pour le roulement
 
 @export var sons_de: Array[AudioStream] = []
 
@@ -22,6 +23,16 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if out_of_moves:
 		return
+	
+	# Détecte si le joueur appuie sur une touche de mouvement
+	var is_moving_input = Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left")
+	
+	# Gère le son de roulement continu
+	if is_moving_input and not rolling_audio.playing:
+		rolling_audio.play()
+	elif not is_moving_input and rolling_audio.playing:
+		rolling_audio.stop()
+
 	var forward = Vector3.FORWARD
 	if Input.is_action_pressed("ui_up"):
 		roll(forward, "up")
@@ -37,7 +48,8 @@ func roll(dir, direction_name) -> void:
 		return
 	rolling = true
 
-	if not sons_de.is_empty():
+	# Joue la note de musique uniquement si le son de roulement ne prend pas le relais
+	if not sons_de.is_empty() and not rolling_audio.playing:
 		audio_player.stream = sons_de.pick_random()
 		audio_player.play()
 
@@ -49,9 +61,9 @@ func roll(dir, direction_name) -> void:
 	tween.tween_property(pivot, "transform",
 		pivot.transform.rotated_local(axis, PI/2), 1 / speed)
 	await tween.finished
-	
+
 	green = DiceRoll.green_pos(green, direction_name)
-	
+
 	transform.origin += dir * cube_size
 	var b = mesh.global_transform.basis
 	pivot.transform = Transform3D.IDENTITY
