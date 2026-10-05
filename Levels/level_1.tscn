@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="5_xoyoh"]
 [ext_resource type="Script" uid="uid://clwuc3dlrcwk5" path="res://tools/level_solver.gd" id="6_0urlm"]
 [ext_resource type="PackedScene" uid="uid://16uixv3anms8" path="res://Gnoumagbe/Background.tscn" id="8_77x7w"]
-[ext_resource type="AudioStream" uid="uid://cp44rsd2snjwx" path="res://Music/indice.mp3" id="9_xoyoh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
 
@@ -69,10 +68,6 @@ goal = NodePath("../End")
 
 [node name="MeshInstance3D" parent="." unique_id=692236584 instance=ExtResource("8_77x7w")]
 transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 16.5, 7.5, -23)
-
-[node name="AudioLevel1Player" type="AudioStreamPlayer" parent="." unique_id=757272803]
-stream = ExtResource("9_xoyoh")
-autoplay = true
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
 [connection signal="body_entered" from="Fail" to="Fail" method="_on_body_entered"]

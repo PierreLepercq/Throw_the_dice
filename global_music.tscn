@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://ba3j4nnqphtkf"]
 
-[ext_resource type="AudioStream" uid="uid://ck02jxedpl5so" path="res://indice.mp3" id="1_j0w4y"]
+[ext_resource type="AudioStream" uid="uid://cp44rsd2snjwx" path="res://Music/indice.mp3" id="1_j0w4y"]
 
 [node name="GlobalMusic" type="AudioStreamPlayer" unique_id=1859264587]
 stream = ExtResource("1_j0w4y")
+volume_db = -5.237
 autoplay = true

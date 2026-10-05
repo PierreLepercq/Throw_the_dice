@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://clwuc3dlrcwk5" path="res://tools/level_solver.gd" id="6_am1cx"]
 [ext_resource type="Texture2D" uid="uid://cgojh63ouump6" path="res://Gnoumagbe/sky.png" id="8_kiobq"]
 [ext_resource type="Shader" uid="uid://cx1xxhk8ikssy" path="res://Levelscloud.tres" id="9_75g3n"]
-[ext_resource type="AudioStream" uid="uid://cp44rsd2snjwx" path="res://Music/indice.mp3" id="10_5ohqh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
 size = Vector3(1, 1, 1.5)
@@ -97,10 +96,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_hordx")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1163451235]
 transform = Transform3D(0.99999976, 8.940697e-08, -7.450581e-09, 0, 0.99999994, -7.4505806e-08, -7.450581e-09, -2.9802322e-08, 0.99999994, 0.14652824, 1.5417671, 9.385662)
 mesh = SubResource("PlaneMesh_rgs30")
-
-[node name="AudioLevel0Player" type="AudioStreamPlayer" parent="." unique_id=2048771798]
-stream = ExtResource("10_5ohqh")
-autoplay = true
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
 [connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_body_entered"]
