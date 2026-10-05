@@ -1,9 +1,15 @@
 [gd_scene format=4 uid="uid://di68h2hjqtn0j"]
 
 [ext_resource type="Script" uid="uid://d3cbj7hrrlfct" path="res://character_movement.gd" id="1_sgu3n"]
+[ext_resource type="AudioStream" uid="uid://bvx1r2qm8u56e" path="res://Music/new/Do.mp3" id="2_55ca1"]
 [ext_resource type="PackedScene" uid="uid://ov2wrgc30pa5" path="res://assets/3d/Dice.fbx" id="2_wjg2j"]
+[ext_resource type="AudioStream" uid="uid://4ugrob3nfboc" path="res://Music/new/La.mp3" id="3_7ky8h"]
 [ext_resource type="AudioStream" uid="uid://bmf71eeb7dpys" path="res://Music/rolling.mp3" id="3_wjg2j"]
 [ext_resource type="Texture2D" uid="uid://c6874xt2e25nf" path="res://assets/2d/dice.png" id="4_a8fou"]
+[ext_resource type="AudioStream" uid="uid://iqyewdeg71r3" path="res://Music/new/Mi.mp3" id="4_qcko8"]
+[ext_resource type="AudioStream" uid="uid://cd54ra2ed8m0m" path="res://Music/new/Ré.mp3" id="5_0kmqe"]
+[ext_resource type="AudioStream" uid="uid://k61ftvskwkgo" path="res://Music/new/Si.mp3" id="6_mkwjm"]
+[ext_resource type="AudioStream" uid="uid://ve3so7w2rxd4" path="res://Music/new/Sol.mp3" id="7_xjo03"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gk8nk"]
 
@@ -14,7 +20,10 @@ data = PackedByteArray("SUQzAgAAAAAfdlRTUwAAEwBHYXJhZ2VCYW5kIDEwLjQuMTRDT00AAGgA
 bg_color = Color(0.106126174, 0.1680183, 0.15594886, 0.89500004)
 
 [node name="RigidBody3D" type="RigidBody3D" unique_id=794481308]
+gravity_scale = 2.0
+max_contacts_reported = 10
 script = ExtResource("1_sgu3n")
+sons_de = Array[AudioStream]([ExtResource("2_55ca1"), ExtResource("3_7ky8h"), ExtResource("4_qcko8"), ExtResource("5_0kmqe"), ExtResource("6_mkwjm"), ExtResource("7_xjo03")])
 
 [node name="Pivot" type="Node3D" parent="." unique_id=976819131]
 
@@ -25,7 +34,7 @@ transform = Transform3D(0.5, 0, 0, 0, -2.1855692e-08, 0.49999997, 0, -0.49999997
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_gk8nk")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=82087807]
+[node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="." unique_id=82087807]
 stream = SubResource("AudioStreamMP3_mkwjm")
 max_polyphony = 8
 
@@ -136,3 +145,16 @@ text = "Next level"
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Retry"
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=961788994]
+transform = Transform3D(1.464, 0, 0, 0, 1, 0, 0, 0, 1.464, 0, 0.5951925, 0)
+hit_back_faces = false
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 5
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1001709490]
+stream = SubResource("AudioStreamMP3_mkwjm")
+max_polyphony = 8
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

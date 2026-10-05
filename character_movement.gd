@@ -1,8 +1,9 @@
 extends RigidBody3D
 
+@onready var ray: RayCast3D = $RayCast3D
 @onready var pivot = $Pivot
 @onready var mesh = $Pivot/Mesh
-@onready var audio_player = $AudioStreamPlayer
+@onready var audio_players: Array[AudioStreamPlayer] = [$AudioStreamPlayer1, $AudioStreamPlayer2]
 @onready var rolling_audio = $RollingAudioPlayer # Le nouveau lecteur pour le roulement
 
 @export var sons_de: Array[AudioStream] = []
@@ -14,7 +15,8 @@ var cube_size = 1.0
 var speed = 4.0
 var rolling = false
 var green = "top" 
-var finished = false  
+var finished = false
+var is_on_platform = false
 
 var next_level_path = ""
 
@@ -22,19 +24,32 @@ func _ready() -> void:
 	update_moves_label()
 	$HUD/PanelContainer/WinPanel/Next.pressed.connect(_on_next_pressed)
 	$HUD/PanelContainer/WinPanel/Retry.pressed.connect(_on_retry_pressed)
-
+	
 func _physics_process(delta: float) -> void:
 	if finished:
 		return
-	
+		
+	if transform.origin.y < -10.0:
+		var current_scene_file = get_tree().current_scene.scene_file_path
+		get_tree().call_deferred("change_scene_to_file", current_scene_file)
+		return
+		
+	var query = PhysicsRayQueryParameters3D.create(
+		global_position + Vector3.UP * 0.5,
+		global_position + Vector3.DOWN * 1.0
+	)
+	query.exclude = [get_rid()]  # ignore le cube lui-même
+	if get_world_3d().direct_space_state.intersect_ray(query).is_empty():
+		return
+
 	# Détecte si le joueur appuie sur une touche de mouvement
 	var is_moving_input = Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left")
 	
 	# Gère le son de roulement continu
-	if is_moving_input and not rolling_audio.playing:
-		rolling_audio.play()
-	elif not is_moving_input and rolling_audio.playing:
-		rolling_audio.stop()
+	#if is_moving_input and not rolling_audio.playing:
+	#	rolling_audio.play()
+	#elif not is_moving_input and rolling_audio.playing:
+	#	rolling_audio.stop()
 
 	var forward = Vector3.FORWARD
 	if Input.is_action_pressed("ui_up"):
@@ -52,7 +67,8 @@ func roll(dir, direction_name) -> void:
 	rolling = true
 
 	# Joue la note de musique uniquement si le son de roulement ne prend pas le relais
-	if not sons_de.is_empty() and not rolling_audio.playing:
+	if not sons_de.is_empty():# and not rolling_audio.playing:
+		var audio_player = audio_players[moves % 2]
 		audio_player.stream = sons_de.pick_random()
 		audio_player.play()
 
@@ -110,10 +126,8 @@ func show_win(stars: int, three_stars: int, two_stars: int, next_path: String) -
 	$HUD/PanelContainer.visible = true
 	$HUD/PanelContainer/WinPanel/Next.grab_focus()   # so Enter/Space also presses "Next level"
 
-
 func _on_next_pressed() -> void:
 	get_tree().change_scene_to_file(next_level_path)
-
 
 func _on_retry_pressed() -> void:
 	get_tree().reload_current_scene()

@@ -1,14 +1,34 @@
-[gd_scene format=3 uid="uid://cudbpe2jeeff2"]
+[gd_scene format=3 uid="uid://d0677rg14abuf"]
 
-[ext_resource type="Script" uid="uid://co6qr0llkjrtr" path="res://Gnoumagbe/killzone.gd" id="1_sbfpf"]
+[sub_resource type="GDScript" id="GDScript_t1t2v"]
+script/source = "extends Area3D
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_body_entered(body: Node3D) -> void:
+	pass
+	#if body.is_in_group(\"Player\"):
+	#	var current_scene_file = get_tree().current_scene.scene_file_path
+	#	get_tree().call_deferred(\"change_scene_to_file\", current_scene_file)
+	#	print(\"caca\")
+"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgt47"]
+size = Vector3(6.4560547, 1.4365234, 7.3814697)
 
 [node name="Fail" type="Area3D" unique_id=596901172]
-script = ExtResource("1_sbfpf")
+script = SubResource("GDScript_t1t2v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1444745233]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -15, 0)
 shape = SubResource("BoxShape3D_sgt47")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
