@@ -20,7 +20,7 @@ size = Vector3(0.8, 1, 1)
 [node name="CameraPivot" type="Node3D" parent="." unique_id=108885379]
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1939474585 node_paths=PackedStringArray("player")]
-transform = Transform3D(0.91195154, 0.20514902, -0.35532853, -1.7598262e-08, 0.86602545, 0.5, 0.41029805, -0.45597574, 0.7897732, -14.837104, 13.689234, 21.863707)
+transform = Transform3D(0.91195154, 0.20514902, -0.35532853, -1.7598262e-08, 0.86602545, 0.5, 0.41029805, -0.45597574, 0.7897732, -14.837104, 11.261522, 21.863707)
 projection = 1
 size = 16.0
 script = ExtResource("1_uwxw1")
@@ -46,9 +46,6 @@ script = ExtResource("4_ay5qi")
 transform = Transform3D(30, 0, 0, 0, 5, 0, 0, 0, 30, -2.9999995, 0, 0)
 shape = SubResource("BoxShape3D_i18n0")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1793249338]
-transform = Transform3D(0.22369769, 0.6160253, -0.75529593, -0.29789418, 0.7810645, 0.54881436, 0.92801857, 0.10222979, 0.35823274, -21.07178, 13.129112, 14.880892)
-
 [node name="Start" type="Node3D" parent="." unique_id=1809703995 node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 8.5)
 script = ExtResource("4_ck3gp")
@@ -70,10 +67,25 @@ start = NodePath("../Start")
 goal = NodePath("../End")
 
 [node name="MeshInstance3D" parent="." unique_id=692236584 instance=ExtResource("8_fa81k")]
-transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 16.5, 7.5, -23)
+transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 5.0338287, -3.7755966, -30.736198)
 
 [node name="LEVEL_3" parent="." unique_id=1893979324 instance=ExtResource("9_ck3gp")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 9.54, -0.47, 8.47)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=11884960]
+transform = Transform3D(0.90052557, -0.39237976, 0.18732813, 0.15096416, 0.68618983, 0.71158516, -0.40775424, -0.6125208, 0.67716676, 1.2476823, 2.9986455, 6.218872)
+light_color = Color(0.95686275, 0.78039217, 0.42745098, 1)
+light_energy = 11.815
+area_range = 14.697
+area_size = Vector2(6.962776, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=989057847]
+transform = Transform3D(0.9153484, 0.3968814, -0.06798827, -0.1849224, 0.56432503, 0.804575, 0.35768837, -0.723894, 0.58994627, -21.566975, 13.146436, 14.873307)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=194316052]
+transform = Transform3D(0.0960514, 0, -0.9953764, 0, 1, 0, 0.9953764, 0, 0.0960514, -13.746601, 0.017323494, -0.007584572)
+light_color = Color(0.27232108, 0.108002506, 0.18585166, 1)
+light_energy = 1.889
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
 [connection signal="body_entered" from="Fail" to="Fail" method="_on_body_entered"]

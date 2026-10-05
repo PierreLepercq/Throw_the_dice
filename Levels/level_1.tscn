@@ -45,9 +45,6 @@ script = ExtResource("4_0urlm")
 transform = Transform3D(30, 0, 0, 0, 5, 0, 0, 0, 30, 0, 0, 0)
 shape = SubResource("BoxShape3D_i18n0")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1793249338]
-transform = Transform3D(0.22369769, 0.6160253, -0.75529593, -0.29789418, 0.7810645, 0.54881436, 0.92801857, 0.10222979, 0.35823274, -21.07178, 13.129112, 14.880892)
-
 [node name="Start" type="Node3D" parent="." unique_id=1809703995 node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 script = ExtResource("5_xoyoh")
@@ -73,6 +70,21 @@ transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.259
 
 [node name="LEVEL_1" parent="." unique_id=665884204 instance=ExtResource("9_xoyoh")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 23.54, -0.45, 0.5)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1024324137]
+transform = Transform3D(0.9846165, -0.16843933, -0.046460263, 0.16066578, 0.7682599, 0.61964774, -0.06867948, -0.6175799, 0.78350383, 1.0434396, 3.3581564, 2.7454338)
+light_color = Color(0.95686275, 0.78039217, 0.42745098, 1)
+light_energy = 11.815
+area_range = 6.804
+area_size = Vector2(6.962776, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1360745439]
+transform = Transform3D(0.91534853, 0.39688146, -0.06798825, -0.18492241, 0.564325, 0.8045752, 0.3576884, -0.7238939, 0.5899462, -21.57178, 13.129112, 14.880892)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=41210183]
+transform = Transform3D(0.096051395, 0, -0.99537635, 0, 1, 0, 0.99537635, 0, 0.096051395, -9.902764, 0, 0)
+light_color = Color(0.27232108, 0.108002506, 0.18585166, 1)
+light_energy = 1.889
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
 [connection signal="body_entered" from="Fail" to="Fail" method="_on_body_entered"]
