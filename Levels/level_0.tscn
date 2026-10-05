@@ -74,7 +74,7 @@ mesh = SubResource("PlaneMesh_0mx8d")
 surface_material_override/0 = SubResource("StandardMaterial3D_swqdq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1793249338]
-transform = Transform3D(0.3814479, 0.6244186, -0.6816149, -0.29789418, 0.78106445, 0.5488144, 0.87507504, -0.006295063, 0.48394608, -21.57178, 13.129112, 14.880892)
+transform = Transform3D(0.91534853, 0.39688146, -0.06798825, -0.18492241, 0.564325, 0.8045752, 0.3576884, -0.7238939, 0.5899462, -21.57178, 13.129112, 14.880892)
 
 [node name="Start" type="Node3D" parent="." unique_id=1809703995 node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
@@ -117,6 +117,18 @@ mesh = SubResource("PlaneMesh_rgs30")
 [node name="LEVEL_0-01" parent="." unique_id=1280760971 instance=ExtResource("10_5ohqh")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 31.04, -0.46, 11.48)
 
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=440531286]
+transform = Transform3D(1, 0, 0, 0, 0.88084394, 0.47340685, 0, -0.47340685, 0.88084394, 5.278055, 2.4385352, 4.247452)
+light_color = Color(0.95686275, 0.78039217, 0.42745098, 1)
+light_energy = 11.815
+area_range = 6.804
+area_size = Vector2(6.962776, 1)
+
+[node name="AreaLight3D2" type="AreaLight3D" parent="." unique_id=1044007477]
+transform = Transform3D(0.493059, -0.18286972, -0.85055953, 0.28767067, 0.95693576, -0.038981363, 0.82105935, -0.22546092, 0.52443206, -5.335249, -0.72370005, -1.3503406)
+light_color = Color(0.32064393, 0.19999665, 0.3992306, 1)
+light_energy = 7.556
+area_range = 7.345
 [node name="Help" type="CanvasLayer" parent="." unique_id=1612602403]
 
 [node name="Label" type="Label" parent="Help" unique_id=584147279]
