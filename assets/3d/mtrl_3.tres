@@ -3,7 +3,7 @@
 [resource]
 resource_name = "mtrl_3"
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.6431373, 0.4627451, 0.7137255, 1)
+albedo_color = Color(0.8392157, 0.38431373, 0.28235295, 1)
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
