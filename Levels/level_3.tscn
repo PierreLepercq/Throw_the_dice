@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://d1sut5wl5kwbk" path="res://Levels/kill.gd" id="4_ay5qi"]
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="4_ck3gp"]
 [ext_resource type="MeshLibrary" uid="uid://dhpboimaq38u0" path="res://tiles.tres" id="5_trpa2"]
-[ext_resource type="Script" uid="uid://clwuc3dlrcwk5" path="res://tools/level_solver.gd" id="6_4t7ew"]
 [ext_resource type="PackedScene" uid="uid://16uixv3anms8" path="res://Gnoumagbe/graphic/Background.tscn" id="8_fa81k"]
 [ext_resource type="PackedScene" uid="uid://bosfp0lui6uaj" path="res://Emma/Assets/LEVEL_3.fbx" id="9_ck3gp"]
 
@@ -74,12 +73,6 @@ cell_size = Vector3(1, 1, 1)
 data = {
 "cells": PackedInt32Array(65527, 8, 3, 65527, 7, 3, 65528, 6, 3, 65527, 6, 3, 65527, 5, 3, 65528, 5, 3, 65529, 5, 3, 65529, 4, 3, 65528, 4, 3, 65529, 3, 3, 65530, 3, 3, 65530, 4, 3, 65530, 2, 3, 65529, 2, 3, 65528, 1, 3, 65529, 1, 3, 65527, 1, 3, 65527, 0, 3, 65526, 0, 3, 65526, 65535, 3, 65526, 65534, 3, 65526, 65533, 3, 65527, 65533, 3, 65528, 65533, 3, 65528, 65532, 3, 65529, 65532, 3, 65530, 65532, 3, 65529, 65533, 3, 65531, 65532, 3, 65532, 65532, 3, 65532, 65531, 3, 65533, 65532, 3, 65533, 65531, 3, 65534, 65531, 3, 65534, 65532, 3, 65534, 65533, 3, 65534, 65534, 3, 65535, 65532, 3, 65535, 65534, 3, 65535, 65533, 3, 65535, 65535, 3, 65535, 0, 3, 0, 0, 2, 65534, 65535, 3, 65534, 0, 3)
 }
-
-[node name="Node" type="Node" parent="." unique_id=2053323594 node_paths=PackedStringArray("grid", "start", "goal")]
-script = ExtResource("6_4t7ew")
-grid = NodePath("../GridMap")
-start = NodePath("../Start")
-goal = NodePath("../End")
 
 [node name="MeshInstance3D" parent="." unique_id=692236584 instance=ExtResource("8_fa81k")]
 transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 5.0338287, -3.7755966, -30.736198)

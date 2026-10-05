@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://b0xfe5apmnbyh" path="res://Gnoumagbe/Next_Level.gd" id="4_sfv2l"]
 [ext_resource type="MeshLibrary" uid="uid://dhpboimaq38u0" path="res://tiles.tres" id="5_5pqfd"]
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="5_edwcp"]
-[ext_resource type="Script" uid="uid://clwuc3dlrcwk5" path="res://tools/level_solver.gd" id="6_am1cx"]
 [ext_resource type="Texture2D" uid="uid://cgojh63ouump6" path="res://Gnoumagbe/graphic/sky.png" id="8_kiobq"]
 [ext_resource type="Shader" uid="uid://cx1xxhk8ikssy" path="res://Levelscloud.tres" id="9_75g3n"]
 [ext_resource type="PackedScene" uid="uid://bxdagqn3wgafp" path="res://Emma/Assets/LEVEL_0-01.fbx" id="10_5ohqh"]
@@ -90,12 +89,6 @@ data = {
 "cells": PackedInt32Array(0, 0, 0, 0, 65534, 0, 0, 65535, 3, 0, 65532, 3, 1, 65532, 3, 2, 65532, 3, 3, 65532, 3, 4, 65532, 3, 0, 65533, 3, 4, 65533, 3, 4, 65534, 3, 4, 65535, 3, 4, 0, 2)
 }
 
-[node name="Node" type="Node" parent="." unique_id=802309906 node_paths=PackedStringArray("grid", "start", "goal")]
-script = ExtResource("6_am1cx")
-grid = NodePath("../GridMap")
-start = NodePath("../Start")
-goal = NodePath("../End")
-
 [node name="DeadZone" type="Area3D" parent="." unique_id=1612040949]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
 script = ExtResource("4_am1cx")
@@ -129,6 +122,7 @@ transform = Transform3D(0.493059, -0.18286972, -0.85055953, 0.28767067, 0.956935
 light_color = Color(0.32064393, 0.19999665, 0.3992306, 1)
 light_energy = 7.556
 area_range = 7.345
+
 [node name="Help" type="CanvasLayer" parent="." unique_id=1612602403]
 
 [node name="Label" type="Label" parent="Help" unique_id=584147279]
