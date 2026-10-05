@@ -7,6 +7,7 @@ extends RigidBody3D
 
 @export var sons_de: Array[AudioStream] = []
 
+var dice_img = preload("res://assets/2d/dice.png")
 var moves = 0
 
 var cube_size = 1.0
@@ -90,13 +91,22 @@ func show_win(stars: int, three_stars: int, two_stars: int, next_path: String) -
 	var help = get_tree().current_scene.get_node_or_null("Help")
 	if help:
 		help.visible = false
+	$HUD/Moves.visible = false
+	$HUD/Restart.visible = false
 	next_level_path = next_path
-	$HUD/PanelContainer/WinPanel/WinText.text = "Level complete!\n" + "Stars: " + str(stars) + " / 3\n\n" \
-		+ "Your moves: " + str(moves) + "\n" \
-		+ "3 stars: " + str(three_stars) + " moves or less\n" \
-		+ "2 stars: " + str(two_stars) + " moves or less"
+	$HUD/PanelContainer/WinPanel/WinText.text = "Level complete!\n"
+	$HUD/PanelContainer/WinPanel/FinalMoves.text = "Your moves: " + str(moves) + "\n"
+	if (stars < 2):
+		$HUD/PanelContainer/WinPanel/TwoStars.text = "2 stars: " + str(two_stars) + " moves\n"
+	if (stars < 3):
+		$HUD/PanelContainer/WinPanel/ThreeStars.text = "3 stars: " + str(three_stars) + " moves\n"
+	var dice_slots = $HUD/PanelContainer/WinPanel/Dice.get_children()
+	for i in range(dice_slots.size()):
+		if (i >= stars):
+			dice_slots[i].modulate = Color(0.5, 0.5, 0.5, 0.5)
 	if next_path.ends_with("Main menu.tscn"):
 		$HUD/PanelContainer/WinPanel/Next.text = "Back to menu"   # last level
+
 	$HUD/PanelContainer.visible = true
 	$HUD/PanelContainer/WinPanel/Next.grab_focus()   # so Enter/Space also presses "Next level"
 
