@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ov2wrgc30pa5"
-path="res://.godot/imported/Dice.fbx-17961ed5b914a1e26b81cc7cf0a4d4b4.scn"
+uid="uid://bvco6hjnydv0p"
+path="res://.godot/imported/LAST_LEVEL.fbx-125a519d960166a6581f5cbc91ea8a38.scn"
 
 [deps]
 
-source_file="res://assets/3d/Dice.fbx"
-dest_files=["res://.godot/imported/Dice.fbx-17961ed5b914a1e26b81cc7cf0a4d4b4.scn"]
+source_file="res://Emma/Assets/LAST_LEVEL.fbx"
+dest_files=["res://.godot/imported/LAST_LEVEL.fbx-125a519d960166a6581f5cbc91ea8a38.scn"]
 
 [params]
 
@@ -36,7 +36,7 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-materials/extract=1
+materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
