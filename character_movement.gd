@@ -3,9 +3,11 @@ extends RigidBody3D
 @onready var pivot = $Pivot
 @onready var mesh = $Pivot/Mesh
 @onready var audio_player = $AudioStreamPlayer
-@onready var rolling_audio = $RollingAudioPlayer # Le nouveau lecteur pour le roulement
+@onready var rolling_audio = $RollingAudioPlayer
 
 @export var sons_de: Array[AudioStream] = []
+@export var son_victoire: AudioStream
+@export var son_defaite: AudioStream
 
 var moves = 0
 
@@ -18,11 +20,16 @@ func _ready() -> void:
 	update_moves_label()
 
 func _physics_process(delta: float) -> void:
+	if out_of_moves:
+		return
+		
+	if global_position.y < -5.0 and not out_of_moves:
+		out_of_moves = true
+		_on_fail_timer_timeout()
+		return
 	
-	# Détecte si le joueur appuie sur une touche de mouvement
 	var is_moving_input = Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left")
 	
-	# Gère le son de roulement continu
 	if is_moving_input and not rolling_audio.playing:
 		rolling_audio.play()
 	elif not is_moving_input and rolling_audio.playing:
@@ -43,7 +50,6 @@ func roll(dir, direction_name) -> void:
 		return
 	rolling = true
 
-	# Joue la note de musique uniquement si le son de roulement ne prend pas le relais
 	if not sons_de.is_empty() and not rolling_audio.playing:
 		audio_player.stream = sons_de.pick_random()
 		audio_player.play()
@@ -69,8 +75,21 @@ func roll(dir, direction_name) -> void:
 	update_moves_label()
 	
 func update_moves_label() -> void:
-	$HUD/Moves.text = "Moves: " + str(moves)
+	$HUD/Moves.text = "Moves: " + str(moves) + " / " + str(max_moves)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _on_fail_timer_timeout() -> void:
+	print("Défaite appelée !")
+	$HUD/Fail.visible = true
+	if son_defaite:
+		audio_player.stream = son_defaite
+		audio_player.play()
+		await get_tree().create_timer(0.8).timeout 
+	get_tree().reload_current_scene()
+
+func win_game() -> void:
+	if son_victoire:
+		audio_player.stream = son_victoire
+		audio_player.play()
+
 func _process(delta: float) -> void:
 	pass
