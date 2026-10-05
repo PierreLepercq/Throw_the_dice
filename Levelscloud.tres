@@ -1,10 +1,10 @@
 [gd_resource type="VisualShader" format=3 uid="uid://cx1xxhk8ikssy"]
 
-[ext_resource type="Texture2D" uid="uid://bxjqwwpvsu6os" path="res://Gnoumagbe/graphic/cloud.png" id="1_6rkph"]
+[ext_resource type="Texture2D" uid="uid://5v2p0fe2negk" path="res://Emma/2D/Cloud.png" id="2_7m01o"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_7m01o"]
 expanded_output_ports = [0]
-texture = ExtResource("1_6rkph")
+texture = ExtResource("2_7m01o")
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_dypax"]
 input_name = "uv"
@@ -24,7 +24,7 @@ input_name = "time"
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_4re8o"]
 output_port_for_preview = 0
 expanded_output_ports = [0]
-texture = ExtResource("1_6rkph")
+texture = ExtResource("2_7m01o")
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_mrfi7"]
 output_port_for_preview = 0

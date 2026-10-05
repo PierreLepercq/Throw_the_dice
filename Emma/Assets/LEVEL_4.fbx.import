@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bvco6hjnydv0p"
-path="res://.godot/imported/LAST_LEVEL.fbx-125a519d960166a6581f5cbc91ea8a38.scn"
+path="res://.godot/imported/LEVEL_4.fbx-d1dc412d1c244602a6c3910bbca58019.scn"
 
 [deps]
 
-source_file="res://Emma/Assets/LAST_LEVEL.fbx"
-dest_files=["res://.godot/imported/LAST_LEVEL.fbx-125a519d960166a6581f5cbc91ea8a38.scn"]
+source_file="res://Emma/Assets/LEVEL_4.fbx"
+dest_files=["res://.godot/imported/LEVEL_4.fbx-d1dc412d1c244602a6c3910bbca58019.scn"]
 
 [params]
 

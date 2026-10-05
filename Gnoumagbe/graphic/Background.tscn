@@ -23,7 +23,7 @@ material = SubResource("ShaderMaterial_ujhgb")
 size = Vector2(40, 40)
 
 [node name="MeshInstance3D" type="MeshInstance3D" unique_id=692236584]
-transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 0, 0, 0)
+transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 0.00029563904, 0, 0)
 material_override = SubResource("StandardMaterial3D_75g3n")
 mesh = SubResource("PlaneMesh_sgt47")
 surface_material_override/0 = SubResource("StandardMaterial3D_hordx")

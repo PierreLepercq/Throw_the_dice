@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://di68h2hjqtn0j" path="res://Gnoumagbe/character_body_3d.tscn" id="2_s275v"]
 [ext_resource type="PackedScene" uid="uid://potii5ymssmm" path="res://Emma/Assets/LEVEL_2.fbx" id="2_vltsr"]
 [ext_resource type="Script" uid="uid://b0xfe5apmnbyh" path="res://Gnoumagbe/Next_Level.gd" id="3_pml6m"]
+[ext_resource type="PackedScene" uid="uid://c1dw7sxlpi42b" path="res://Gnoumagbe/graphic/Goal.tscn" id="4_rp5ft"]
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="4_vltsr"]
 [ext_resource type="MeshLibrary" uid="uid://dhpboimaq38u0" path="res://tiles.tres" id="5_rp5ft"]
 [ext_resource type="PackedScene" uid="uid://16uixv3anms8" path="res://Gnoumagbe/graphic/Background.tscn" id="8_pml6m"]
@@ -53,6 +54,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0)
 mesh = SubResource("PlaneMesh_vltsr")
 surface_material_override/0 = SubResource("StandardMaterial3D_rp5ft")
 
+[node name="Goal" parent="End/GoalMarker" unique_id=1862617467 instance=ExtResource("4_rp5ft")]
+
 [node name="Start" type="Node3D" parent="." unique_id=1809703995 node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 script = ExtResource("4_vltsr")
@@ -68,7 +71,7 @@ data = {
 }
 
 [node name="MeshInstance3D" parent="." unique_id=692236584 instance=ExtResource("8_pml6m")]
-transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 16.5, -1.0492954, -23)
+transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 12.706839, 7.5, -24.653568)
 
 [node name="LEVEL_2" parent="." unique_id=87053625 instance=ExtResource("2_vltsr")]
 transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, 19.54, -0.46, -9.53)

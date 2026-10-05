@@ -1,20 +1,39 @@
 [gd_resource type="VisualShader" format=3 uid="uid://ddel1ont1y7r1"]
 
 [ext_resource type="Texture2D" uid="uid://kpilspcc6mok" path="res://Gnoumagbe/graphic/Goal_mask.png" id="1_se7ex"]
+[ext_resource type="Texture2D" uid="uid://0o03dfg0oneg" path="res://Gnoumagbe/graphic/lines.png" id="2_vryk4"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_qww52"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_4dnpf"]
+output_port_for_preview = 4
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+expanded_output_ports = [0]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_erqdb"]
+output_port_for_preview = 0
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_wejuq"]
+output_port_for_preview = 0
+parameter_name = "ColorParameter2"
+default_value_enabled = true
+default_value = Color(0.4265197, 0.4265197, 0.4265197, 1)
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_se7ex"]
+output_port_for_preview = 1
 expanded_output_ports = [0]
 texture = ExtResource("1_se7ex")
-
-[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_vryk4"]
-default_input_values = [0, 0.0, 1, 5.0]
-operator = 2
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_qww52"]
 output_port_for_preview = 0
 parameter_name = "ColorParameter"
 default_value_enabled = true
-default_value = Color(0.8901961, 0, 0.19607843, 1)
+default_value = Color(0, 0.88235295, 0, 1)
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_vfhpn"]
 output_port_for_preview = 0
@@ -22,20 +41,56 @@ default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
 op_type = 2
 operator = 2
 
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_wxlih"]
+output_port_for_preview = 0
+expanded_output_ports = [0]
+texture = ExtResource("2_vryk4")
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_r0uau"]
+output_port_for_preview = 0
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_bsdag"]
+output_port_for_preview = 0
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_exf14"]
+output_port_for_preview = 0
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(0, 1, 0)]
+operator = 2
+
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_vryk4"]
 expanded_output_ports = [0]
 texture = ExtResource("1_se7ex")
 
 [resource]
+modes/blend = 1
+modes/cull = 2
 nodes/vertex/2/node = SubResource("VisualShaderNodeTexture_vryk4")
 nodes/vertex/2/position = Vector2(-208, 144)
 nodes/vertex/connections = PackedInt32Array(2, 0, 0, 6, 2, 4, 0, 7)
+nodes/fragment/0/position = Vector2(1568, -144)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_se7ex")
-nodes/fragment/2/position = Vector2(-960, 336)
-nodes/fragment/3/node = SubResource("VisualShaderNodeFloatOp_vryk4")
-nodes/fragment/3/position = Vector2(23.42961, 487.6128)
+nodes/fragment/2/position = Vector2(-832, 144)
 nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_qww52")
-nodes/fragment/4/position = Vector2(-736, 112)
+nodes/fragment/4/position = Vector2(-656, 528)
 nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_vfhpn")
-nodes/fragment/5/position = Vector2(-176, 144)
-nodes/fragment/connections = PackedInt32Array(2, 4, 0, 1, 2, 0, 3, 0, 3, 0, 0, 5, 4, 0, 5, 0, 2, 0, 5, 1, 5, 0, 0, 0)
+nodes/fragment/5/position = Vector2(208, 384)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture_wxlih")
+nodes/fragment/6/position = Vector2(-512, -560)
+nodes/fragment/7/node = SubResource("VisualShaderNodeVectorOp_r0uau")
+nodes/fragment/7/position = Vector2(-720, -352)
+nodes/fragment/8/node = SubResource("VisualShaderNodeInput_bsdag")
+nodes/fragment/8/position = Vector2(-1035.9794, -568.0596)
+nodes/fragment/9/node = SubResource("VisualShaderNodeVectorOp_exf14")
+nodes/fragment/9/position = Vector2(-976, -224)
+nodes/fragment/10/node = SubResource("VisualShaderNodeInput_qww52")
+nodes/fragment/10/position = Vector2(-1355.9794, -184.05957)
+nodes/fragment/11/node = SubResource("VisualShaderNodeVectorOp_4dnpf")
+nodes/fragment/11/position = Vector2(544, -704)
+nodes/fragment/12/node = SubResource("VisualShaderNodeVectorOp_erqdb")
+nodes/fragment/12/position = Vector2(144, -656)
+nodes/fragment/13/node = SubResource("VisualShaderNodeColorParameter_wejuq")
+nodes/fragment/13/position = Vector2(-192, -1104)
+nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 8, 0, 7, 0, 9, 0, 7, 1, 10, 0, 9, 0, 7, 0, 6, 0, 5, 0, 11, 1, 13, 0, 12, 0, 6, 0, 12, 1, 12, 0, 11, 0, 2, 0, 5, 1, 2, 1, 0, 1, 11, 0, 0, 0)

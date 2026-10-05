@@ -1,3 +1,18 @@
 [gd_scene format=3 uid="uid://c1dw7sxlpi42b"]
 
+[ext_resource type="ArrayMesh" uid="uid://be34i22wihy3c" path="res://Gnoumagbe/graphic/Goal.fbx" id="1_8ijou"]
+[ext_resource type="Shader" uid="uid://ddel1ont1y7r1" path="res://Gnoumagbe/graphic/Goal_shader.tres" id="2_7anym"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_83vj5"]
+render_priority = 0
+shader = ExtResource("2_7anym")
+shader_parameter/ColorParameter2 = Color(0.42652, 0.42652, 0.42652, 1)
+shader_parameter/ColorParameter = Color(0, 1.6670943, 0, 1)
+
 [node name="Goal" type="Node3D" unique_id=1862617467]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=79048519]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+cast_shadow = 0
+mesh = ExtResource("1_8ijou")
+surface_material_override/0 = SubResource("ShaderMaterial_83vj5")
