@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cgojh63ouump6" path="res://Gnoumagbe/graphic/sky.png" id="8_kiobq"]
 [ext_resource type="Shader" uid="uid://cx1xxhk8ikssy" path="res://Levelscloud.tres" id="9_75g3n"]
 [ext_resource type="PackedScene" uid="uid://bxdagqn3wgafp" path="res://Emma/Assets/LEVEL_0-01.fbx" id="10_5ohqh"]
+[ext_resource type="PackedScene" uid="uid://fdv262dg1sxg" path="res://Gnoumagbe/shaders.tscn" id="11_g0qw3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
 
@@ -113,6 +114,27 @@ transform = Transform3D(0.493059, -0.18286972, -0.85055953, 0.28767067, 0.956935
 light_color = Color(0.32064393, 0.19999665, 0.3992306, 1)
 light_energy = 7.556
 area_range = 7.345
+[node name="Help" type="CanvasLayer" parent="." unique_id=1612602403]
+
+[node name="Label" type="Label" parent="Help" unique_id=584147279]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.5
+offset_top = -182.0
+offset_right = 344.5
+offset_bottom = -88.99963
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Arrow keys: roll the dice
+Land on the exit with the GREEN face on top!"
+horizontal_alignment = 1
+
+[node name="Shaders" parent="." unique_id=2142376859 instance=ExtResource("11_g0qw3")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 2.5, -1.5, -1.5)
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
 [connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_body_entered"]

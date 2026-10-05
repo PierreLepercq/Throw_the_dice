@@ -50,6 +50,8 @@ void fragment() {
 	METALLIC = metalic;
 	ROUGHNESS = roughness;
 	NORMAL_MAP = normal_blend;
+	ALPHA = 0.5
+	;
 	// Called for every pixel the material is visible on.
 }
 
