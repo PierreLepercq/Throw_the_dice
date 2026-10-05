@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bxdagqn3wgafp" path="res://Emma/Assets/LEVEL_0-01.fbx" id="10_5ohqh"]
 [ext_resource type="PackedScene" uid="uid://d0677rg14abuf" path="res://Gnoumagbe/killzone.tscn" id="10_g0qw3"]
 [ext_resource type="PackedScene" uid="uid://fdv262dg1sxg" path="res://Gnoumagbe/shaders.tscn" id="11_g0qw3"]
+[ext_resource type="Material" uid="uid://bdyt0gtwomlhj" path="res://Emma/Assets/Material.025.tres" id="11_hyv8f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
 
@@ -40,6 +41,8 @@ shader = ExtResource("9_75g3n")
 material = SubResource("ShaderMaterial_ujhgb")
 size = Vector2(40, 40)
 
+[sub_resource type="BoxMesh" id="BoxMesh_nevnt"]
+
 [node name="Node3D" type="Node3D" unique_id=1233023898]
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=108885379]
@@ -57,7 +60,7 @@ player = NodePath("../../Base")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.50000006)
 
 [node name="CharacterBody3D" parent="Base" unique_id=1446405869 groups=["Player"] instance=ExtResource("3_hipi8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.533437, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 
 [node name="End" type="Area3D" parent="." unique_id=1414639940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, 0.5)
@@ -138,8 +141,53 @@ End with the GREEN face on top!"
 horizontal_alignment = 1
 
 [node name="Shaders" parent="." unique_id=2142376859 instance=ExtResource("11_g0qw3")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 2.5, -1.5, -1.5)
+transform = Transform3D(3, 0, 0, 0, 10, 0, 0, 0, 3.2, 2.5, -5.479575, -1.4069853)
 
 [node name="Fail" parent="." unique_id=596901172 instance=ExtResource("10_g0qw3")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=761030850]
+transform = Transform3D(0.3, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.69545245, -0.08037883, -0.5515485)
+material_override = ExtResource("11_hyv8f")
+mesh = SubResource("BoxMesh_nevnt")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1569104355]
+transform = Transform3D(0.2, 0, 0, 0, 0.133, 0, 0, 0, 0.133, 0.35450757, -0.046659052, -0.9172141)
+material_override = ExtResource("11_hyv8f")
+mesh = SubResource("BoxMesh_nevnt")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1357838469]
+transform = Transform3D(-1.704744e-08, 0, 0.26, 0, 0.26, 0, -0.39, 0, -1.13649605e-08, 0.69545245, -0.10259229, -3.5586236)
+material_override = ExtResource("11_hyv8f")
+mesh = SubResource("BoxMesh_nevnt")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1625770186]
+transform = Transform3D(0.2, 0, 0, 0, 0.133, 0, 0, 0, 0.133, 1.2781067, -0.046659052, -3.2368398)
+material_override = ExtResource("11_hyv8f")
+mesh = SubResource("BoxMesh_nevnt")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=1650873559]
+transform = Transform3D(-1.11901155e-08, 0, 0.17, 0, 0.17, 0, -0.256, 0, -7.430936e-09, 4.2031446, -0.046659052, -1.8357427)
+material_override = ExtResource("11_hyv8f")
+mesh = SubResource("BoxMesh_nevnt")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="." unique_id=259411378]
+transform = Transform3D(0.3, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 4.581606, -0.08037883, -0.48302338)
+material_override = ExtResource("11_hyv8f")
+mesh = SubResource("BoxMesh_nevnt")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="." unique_id=1533632853]
+transform = Transform3D(0.3, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 4.3832073, -0.08037883, -3.7347724)
+material_override = ExtResource("11_hyv8f")
+mesh = SubResource("BoxMesh_nevnt")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="." unique_id=492193324]
+transform = Transform3D(-7.212379e-09, 0, 0.11, 0, 0.11, 0, -0.165, 0, -4.808253e-09, 3.0821476, -0.046659052, -3.4370391)
+material_override = ExtResource("11_hyv8f")
+mesh = SubResource("BoxMesh_nevnt")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="." unique_id=1421767292]
+transform = Transform3D(-6.5567085e-09, 0, 0.1, 0, 0.1, 0, -0.15, 0, -4.371139e-09, 3.952705, -0.41535848, -0.31043312)
+material_override = ExtResource("11_hyv8f")
+mesh = SubResource("BoxMesh_nevnt")
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
