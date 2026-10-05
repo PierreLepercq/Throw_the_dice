@@ -102,6 +102,25 @@ mesh = SubResource("PlaneMesh_rgs30")
 [node name="LEVEL_0-01" parent="." unique_id=1280760971 instance=ExtResource("10_5ohqh")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 31.04, -0.46, 11.48)
 
+[node name="Help" type="CanvasLayer" parent="." unique_id=1612602403]
+
+[node name="Label" type="Label" parent="Help" unique_id=584147279]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.5
+offset_top = -182.0
+offset_right = 344.5
+offset_bottom = -88.99963
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Arrow keys: roll the dice
+Land on the exit with the GREEN face on top!"
+horizontal_alignment = 1
+
 [node name="Shaders" parent="." unique_id=2142376859 instance=ExtResource("11_g0qw3")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 2.5, -1.5, -1.5)
 

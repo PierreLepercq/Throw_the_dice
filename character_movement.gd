@@ -74,3 +74,7 @@ func update_moves_label() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _unhandled_input(event: InputEvent) -> void: # pour restart avec R
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_R:
+		get_tree().reload_current_scene()

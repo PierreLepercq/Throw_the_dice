@@ -16,4 +16,6 @@ func _on_body_entered(body: Node3D) -> void:
 		var current_scene_file = get_tree().current_scene.scene_file_path
 		var next_level_number = current_scene_file.to_int() + 1
 		var next_level_path = FILE_DIR + str(next_level_number) + ".tscn"
+		if not ResourceLoader.exists(next_level_path):
+			next_level_path = "res://Levels/Main menu.tscn"
 		get_tree().call_deferred("change_scene_to_file", next_level_path)
