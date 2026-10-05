@@ -7,9 +7,7 @@ extends RigidBody3D
 
 @export var sons_de: Array[AudioStream] = []
 
-@export var max_moves = 10
 var moves = 0
-var out_of_moves = false
 
 var cube_size = 1.0
 var speed = 4.0
@@ -18,11 +16,8 @@ var green = "top"
 
 func _ready() -> void:
 	update_moves_label()
-	$FailTimer.timeout.connect(_on_fail_timer_timeout)
 
 func _physics_process(delta: float) -> void:
-	if out_of_moves:
-		return
 	
 	# Détecte si le joueur appuie sur une touche de mouvement
 	var is_moving_input = Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left")
@@ -72,17 +67,10 @@ func roll(dir, direction_name) -> void:
 	rolling = false
 	moves += 1
 	update_moves_label()
-	if moves >= max_moves:
-		out_of_moves = true
-		$FailTimer.start()
-
+	
 func update_moves_label() -> void:
-	$HUD/Moves.text = "Moves: " + str(moves) + " / " + str(max_moves)
+	$HUD/Moves.text = "Moves: " + str(moves)
 
-func _on_fail_timer_timeout() -> void:
-	$HUD/Fail.visible = true
-	await get_tree().create_timer(1.5).timeout 
-	get_tree().reload_current_scene()
-
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cajdveswn36qc" path="res://Gnoumagbe/camera_follow.gd" id="1_fbld2"]
 [ext_resource type="PackedScene" uid="uid://di68h2hjqtn0j" path="res://Gnoumagbe/character_body_3d.tscn" id="2_s275v"]
+[ext_resource type="PackedScene" uid="uid://potii5ymssmm" path="res://Emma/Assets/LEVEL_2.fbx" id="2_vltsr"]
 [ext_resource type="Script" uid="uid://b0xfe5apmnbyh" path="res://Gnoumagbe/Next_Level.gd" id="3_pml6m"]
 [ext_resource type="Script" uid="uid://d1sut5wl5kwbk" path="res://Levels/kill.gd" id="4_s275v"]
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="4_vltsr"]
@@ -18,7 +19,7 @@
 [node name="CameraPivot" type="Node3D" parent="." unique_id=108885379]
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1939474585 node_paths=PackedStringArray("player")]
-transform = Transform3D(0.91195154, 0.20514902, -0.35532853, -1.7598262e-08, 0.86602545, 0.5, 0.41029805, -0.45597574, 0.7897732, -10.427944, 14.704922, 20.463707)
+transform = Transform3D(0.91195154, 0.20514902, -0.35532853, -1.7598262e-08, 0.86602545, 0.5, 0.41029805, -0.45597574, 0.7897732, -12.527945, 14.704922, 20.463707)
 projection = 1
 size = 16.0
 script = ExtResource("1_fbld2")
@@ -54,6 +55,7 @@ player = NodePath("../Base")
 
 [node name="GridMap" type="GridMap" parent="." unique_id=289014188]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
 mesh_library = ExtResource("5_rp5ft")
 cell_size = Vector3(1, 1, 1)
 data = {
@@ -68,6 +70,9 @@ goal = NodePath("../End")
 
 [node name="MeshInstance3D" parent="." unique_id=692236584 instance=ExtResource("8_pml6m")]
 transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 16.5, 7.5, -23)
+
+[node name="LEVEL_2" parent="." unique_id=87053625 instance=ExtResource("2_vltsr")]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, 19.54, -0.46, -9.53)
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
 [connection signal="body_entered" from="Fail" to="Fail" method="_on_body_entered"]

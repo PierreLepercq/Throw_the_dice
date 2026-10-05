@@ -31,24 +31,8 @@ autoplay = true
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=203924087]
 
-[node name="Fail" type="RichTextLabel" parent="HUD" unique_id=203669671]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 128
-text = "Out of moves!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Moves" type="Label" parent="HUD" unique_id=1734578553]
 offset_right = 93.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 48
 text = "Moves: 0/10"
-
-[node name="FailTimer" type="Timer" parent="." unique_id=999442999]
-wait_time = 0.5
-one_shot = true
