@@ -137,9 +137,11 @@ offset_right = 344.5
 offset_bottom = -88.99963
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
 text = "Arrow keys: roll the dice
-Land on the exit with the GREEN face on top!"
+End with the GREEN face on top!"
 horizontal_alignment = 1
 
 [node name="Shaders" parent="." unique_id=2142376859 instance=ExtResource("11_g0qw3")]

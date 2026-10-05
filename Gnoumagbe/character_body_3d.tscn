@@ -34,6 +34,8 @@ autoplay = true
 [node name="Moves" type="Label" parent="HUD" unique_id=1734578553]
 offset_right = 93.0
 offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 48
 text = "Moves: 0/10"
 
@@ -41,6 +43,8 @@ text = "Moves: 0/10"
 offset_top = 78.73
 offset_right = 75.0
 offset_bottom = 101.73001
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
 text = "R: Restart"
 
