@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://16uixv3anms8"]
 
-[ext_resource type="Texture2D" uid="uid://cgojh63ouump6" path="res://Gnoumagbe/sky.png" id="1_jiqny"]
+[ext_resource type="Texture2D" uid="uid://cgojh63ouump6" path="res://Gnoumagbe/graphic/sky.png" id="1_jiqny"]
 [ext_resource type="Shader" uid="uid://cx1xxhk8ikssy" path="res://Levelscloud.tres" id="2_b7m6s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75g3n"]
