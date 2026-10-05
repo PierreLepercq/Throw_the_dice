@@ -1,6 +1,7 @@
 extends Control
 
 var first_level = preload("res://Levels/level_0.tscn") #pour eviter trop d'attente sur le menu
+var level_select_scene = preload("res://level_select.tscn")
 
 func play():
 	%Play.text = "Loading..."
@@ -8,6 +9,9 @@ func play():
 	await get_tree().process_frame
 	await get_tree().process_frame
 	get_tree().change_scene_to_packed(first_level)
+	
+func open_level_select():
+	get_tree().change_scene_to_packed(level_select_scene)
 
 func exit():
 	get_tree().quit()
@@ -15,6 +19,7 @@ func exit():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%Play.pressed.connect(play)
+	%LevelSelect.pressed.connect(open_level_select)
 	%Exit.visible = not OS.has_feature("web")
 	%Exit.pressed.connect(exit)
 

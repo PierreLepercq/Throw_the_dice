@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://c2gu5h4pqyg7x"]
+
+[ext_resource type="Script" uid="uid://cuykughdw6s66" path="res://level_select.gd" id="1_il3u1"]
+[ext_resource type="Texture2D" uid="uid://vdgy7g8bmrkq" path="res://Gnoumagbe/graphic/p2rpfZc.jpg" id="2_vomi7"]
+
+[node name="Control" type="Control" unique_id=193224912]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_il3u1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1017756226]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -280.0
+offset_right = 280.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vomi7")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=782216019]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=527249899]
+custom_minimum_size = Vector2(294, 68)
+layout_mode = 2
+
+[node name="Niveau0" type="Button" parent="CenterContainer/VBoxContainer" unique_id=226400324]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "LEVEL 0
+
+"
+
+[node name="Niveau1" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1386242487]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "LEVEL 1
+"
+
+[node name="Niveau2" type="Button" parent="CenterContainer/VBoxContainer" unique_id=160693604]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "LEVEL 2"
+
+[node name="Niveau3" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2133347258]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "LEVEL 3"
+
+[node name="Back" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1769427546]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "BACK"
