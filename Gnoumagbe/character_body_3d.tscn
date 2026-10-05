@@ -36,3 +36,10 @@ offset_right = 93.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 48
 text = "Moves: 0/10"
+
+[node name="Restart" type="Label" parent="HUD" unique_id=2131329098]
+offset_top = 78.73
+offset_right = 75.0
+offset_bottom = 101.73001
+theme_override_font_sizes/font_size = 32
+text = "R: Restart"
