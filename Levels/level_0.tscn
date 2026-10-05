@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cgojh63ouump6" path="res://Gnoumagbe/graphic/sky.png" id="8_kiobq"]
 [ext_resource type="Shader" uid="uid://cx1xxhk8ikssy" path="res://Levelscloud.tres" id="9_75g3n"]
 [ext_resource type="PackedScene" uid="uid://bxdagqn3wgafp" path="res://Emma/Assets/LEVEL_0-01.fbx" id="10_5ohqh"]
+[ext_resource type="PackedScene" uid="uid://fdv262dg1sxg" path="res://Gnoumagbe/shaders.tscn" id="11_g0qw3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
 
@@ -100,6 +101,9 @@ mesh = SubResource("PlaneMesh_rgs30")
 
 [node name="LEVEL_0-01" parent="." unique_id=1280760971 instance=ExtResource("10_5ohqh")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 31.04, -0.46, 11.48)
+
+[node name="Shaders" parent="." unique_id=2142376859 instance=ExtResource("11_g0qw3")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 2.5, -1.5, -1.5)
 
 [connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
 [connection signal="body_entered" from="DeadZone" to="DeadZone" method="_on_body_entered"]
