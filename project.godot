@@ -24,6 +24,12 @@ GlobalMusic="*uid://ba3j4nnqphtkf"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[file_customization]
+
+folder_colors={
+"res://Gnoumagbe/": "purple"
+}
+
 [filesystem]
 
 import/blender/enabled=false
@@ -64,3 +70,4 @@ RiGHT={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+occlusion_culling/use_occlusion_culling=true

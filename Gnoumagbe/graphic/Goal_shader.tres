@@ -1,0 +1,41 @@
+[gd_resource type="VisualShader" format=3 uid="uid://ddel1ont1y7r1"]
+
+[ext_resource type="Texture2D" uid="uid://kpilspcc6mok" path="res://Gnoumagbe/graphic/Goal_mask.png" id="1_se7ex"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_se7ex"]
+expanded_output_ports = [0]
+texture = ExtResource("1_se7ex")
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_vryk4"]
+default_input_values = [0, 0.0, 1, 5.0]
+operator = 2
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_qww52"]
+output_port_for_preview = 0
+parameter_name = "ColorParameter"
+default_value_enabled = true
+default_value = Color(0.8901961, 0, 0.19607843, 1)
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_vfhpn"]
+output_port_for_preview = 0
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_vryk4"]
+expanded_output_ports = [0]
+texture = ExtResource("1_se7ex")
+
+[resource]
+nodes/vertex/2/node = SubResource("VisualShaderNodeTexture_vryk4")
+nodes/vertex/2/position = Vector2(-208, 144)
+nodes/vertex/connections = PackedInt32Array(2, 0, 0, 6, 2, 4, 0, 7)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_se7ex")
+nodes/fragment/2/position = Vector2(-960, 336)
+nodes/fragment/3/node = SubResource("VisualShaderNodeFloatOp_vryk4")
+nodes/fragment/3/position = Vector2(23.42961, 487.6128)
+nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_qww52")
+nodes/fragment/4/position = Vector2(-736, 112)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_vfhpn")
+nodes/fragment/5/position = Vector2(-176, 144)
+nodes/fragment/connections = PackedInt32Array(2, 4, 0, 1, 2, 0, 3, 0, 3, 0, 0, 5, 4, 0, 5, 0, 2, 0, 5, 1, 5, 0, 0, 0)
