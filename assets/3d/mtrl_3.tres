@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://w2y3lhlyu5ef"]
+
+[resource]
+resource_name = "mtrl_3"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.6431373, 0.4627451, 0.7137255, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
