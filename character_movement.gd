@@ -13,11 +13,18 @@ var cube_size = 1.0
 var speed = 4.0
 var rolling = false
 var green = "top" 
+var finished = false  
+
+var next_level_path = ""
 
 func _ready() -> void:
 	update_moves_label()
+	$HUD/PanelContainer/WinPanel/Next.pressed.connect(_on_next_pressed)
+	$HUD/PanelContainer/WinPanel/Retry.pressed.connect(_on_retry_pressed)
 
 func _physics_process(delta: float) -> void:
+	if finished:
+		return
 	
 	# Détecte si le joueur appuie sur une touche de mouvement
 	var is_moving_input = Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left")
@@ -78,3 +85,25 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void: # pour restart avec R
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_R:
 		get_tree().reload_current_scene()
+
+func show_win(stars: int, three_stars: int, two_stars: int, next_path: String) -> void:
+	var help = get_tree().current_scene.get_node_or_null("Help")
+	if help:
+		help.visible = false
+	next_level_path = next_path
+	$HUD/PanelContainer/WinPanel/WinText.text = "Level complete!\n" + "Stars: " + str(stars) + " / 3\n\n" \
+		+ "Your moves: " + str(moves) + "\n" \
+		+ "3 stars: " + str(three_stars) + " moves or less\n" \
+		+ "2 stars: " + str(two_stars) + " moves or less"
+	if next_path.ends_with("Main menu.tscn"):
+		$HUD/PanelContainer/WinPanel/Next.text = "Back to menu"   # last level
+	$HUD/PanelContainer.visible = true
+	$HUD/PanelContainer/WinPanel/Next.grab_focus()   # so Enter/Space also presses "Next level"
+
+
+func _on_next_pressed() -> void:
+	get_tree().change_scene_to_file(next_level_path)
+
+
+func _on_retry_pressed() -> void:
+	get_tree().reload_current_scene()

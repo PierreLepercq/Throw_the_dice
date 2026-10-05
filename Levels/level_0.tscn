@@ -14,6 +14,14 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_0mx8d"]
+size = Vector2(0.9, 0.9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_swqdq"]
+albedo_color = Color(6.40139e-06, 0.79588515, 7.70092e-07, 1)
+emission_enabled = true
+emission_energy_multiplier = 0.5
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75g3n"]
 albedo_texture = ExtResource("8_kiobq")
 emission_enabled = true
@@ -54,9 +62,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.50000006)
 [node name="End" type="Area3D" parent="." unique_id=1414639940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, -0.5, 0.5)
 script = ExtResource("4_sfv2l")
+three_stars = 12
+two_stars = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="End" unique_id=527730005]
 shape = SubResource("BoxShape3D_4ye73")
+
+[node name="GoalMarker" type="MeshInstance3D" parent="End" unique_id=2101995508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54, 0)
+mesh = SubResource("PlaneMesh_0mx8d")
+surface_material_override/0 = SubResource("StandardMaterial3D_swqdq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1793249338]
 transform = Transform3D(0.3814479, 0.6244186, -0.6816149, -0.29789418, 0.78106445, 0.5488144, 0.87507504, -0.006295063, 0.48394608, -21.57178, 13.129112, 14.880892)

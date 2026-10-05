@@ -12,6 +12,14 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ye73"]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_ck3gp"]
+size = Vector2(0.9, 0.9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trpa2"]
+albedo_color = Color(6.40139e-06, 0.79588515, 7.70092e-07, 1)
+emission_enabled = true
+emission_energy_multiplier = 0.5
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_i18n0"]
 size = Vector3(0.8, 1, 1)
 
@@ -34,9 +42,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 8.5)
 [node name="End" type="Area3D" parent="." unique_id=1414639940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 0.5)
 script = ExtResource("3_fa81k")
+three_stars = 32
+two_stars = 39
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="End" unique_id=527730005]
 shape = SubResource("BoxShape3D_4ye73")
+
+[node name="GoalMarker" type="MeshInstance3D" parent="End" unique_id=651602352]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0)
+mesh = SubResource("PlaneMesh_ck3gp")
+surface_material_override/0 = SubResource("StandardMaterial3D_trpa2")
 
 [node name="Fail" type="Area3D" parent="." unique_id=1788487326]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.5893407, 0)
