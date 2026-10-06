@@ -47,6 +47,7 @@ shape = SubResource("BoxShape3D_4ye73")
 
 [node name="GoalMarker" type="MeshInstance3D" parent="End" unique_id=1320296791]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0)
+visible = false
 mesh = SubResource("PlaneMesh_xoyoh")
 surface_material_override/0 = ExtResource("4_62b6n")
 
@@ -74,10 +75,11 @@ transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.259
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 23.54, -0.45, 0.5)
 
 [node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1024324137]
-transform = Transform3D(0.9846165, -0.16843933, -0.046460263, 0.16066578, 0.7682599, 0.61964774, -0.06867948, -0.6175799, 0.78350383, 1.0434396, 3.3581564, 2.7454338)
-light_color = Color(0.95686275, 0.78039217, 0.42745098, 1)
-light_energy = 11.815
-area_range = 6.804
+transform = Transform3D(0.93939286, -0.31935966, 0.12470201, 0.15512432, 0.72029626, 0.676099, -0.30574107, -0.61577815, 0.7261816, 2.3087032, 5.737288, 3.2203598)
+light_color = Color(0.95686275, 0.68235296, 0.42745098, 1)
+light_energy = 5.795
+area_range = 11.152
+area_attenuation = 0.406
 area_size = Vector2(6.962776, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1360745439]
@@ -85,7 +87,7 @@ transform = Transform3D(0.91534853, 0.39688146, -0.06798825, -0.18492241, 0.5643
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=41210183]
 transform = Transform3D(0.096051395, 0, -0.99537635, 0, 1, 0, 0.99537635, 0, 0.096051395, -9.902764, 0, 0)
-light_color = Color(0.27232108, 0.108002506, 0.18585166, 1)
+light_color = Color(0.2771701, 0.1082804, 0.17009011, 1)
 light_energy = 1.889
 
 [node name="Shaders" parent="." unique_id=2142376859 instance=ExtResource("9_f4pg2")]

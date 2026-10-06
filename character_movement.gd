@@ -19,11 +19,13 @@ var finished = false
 var is_on_platform = false
 
 var next_level_path = ""
+var menu_path = "res://Levels/Main menu.tscn"
 
 func _ready() -> void:
 	update_moves_label()
 	$HUD/PanelContainer/WinPanel/Next.pressed.connect(_on_next_pressed)
 	$HUD/PanelContainer/WinPanel/Retry.pressed.connect(_on_retry_pressed)
+	$HUD/PanelContainer/WinPanel/Menu.pressed.connect(_on_menu_pressed)
 	
 func _physics_process(delta: float) -> void:
 	if finished:
@@ -115,7 +117,8 @@ func show_win(stars: int, three_stars: int, two_stars: int, next_path: String) -
 	$HUD/Load.visible = false
 	next_level_path = next_path
 	$HUD/PanelContainer/WinPanel/WinText.text = "Level complete!\n"
-	$HUD/PanelContainer/WinPanel/FinalMoves.text = "Your moves: " + str(moves) + "\n"
+	if next_path != menu_path:
+		$HUD/PanelContainer/WinPanel/FinalMoves.text = "Your moves: " + str(moves) + "\n"
 	if (stars < 2):
 		$HUD/PanelContainer/WinPanel/TwoStars.text = "2 stars: " + str(two_stars) + " moves\n"
 	if (stars < 3):
@@ -124,9 +127,8 @@ func show_win(stars: int, three_stars: int, two_stars: int, next_path: String) -
 	for i in range(dice_slots.size()):
 		if (i >= stars):
 			dice_slots[i].modulate = Color(0.5, 0.5, 0.5, 0.5)
-	if next_path.ends_with("Main menu.tscn"):
-		$HUD/PanelContainer/WinPanel/Next.text = "Back to menu"   # last level
-
+	if next_path == menu_path:
+		$HUD/PanelContainer/WinPanel/Next.visible = false
 	$HUD/PanelContainer.visible = true
 	$HUD/PanelContainer/WinPanel/Next.grab_focus()   # so Enter/Space also presses "Next level"
 
@@ -135,3 +137,6 @@ func _on_next_pressed() -> void:
 
 func _on_retry_pressed() -> void:
 	get_tree().reload_current_scene()
+	
+func _on_menu_pressed() -> void:
+	get_tree().change_scene_to_file(menu_path)

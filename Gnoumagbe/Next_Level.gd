@@ -3,6 +3,7 @@ const FILE_DIR = "res://Levels/level_"
 
 @export var three_stars = 0 
 @export var two_stars = 0
+@export var is_bonus = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,6 +18,9 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and body.green == "top" and not body.finished:
 		body.finished = true   # stop the dice
+		if is_bonus:
+			body.show_win(3, three_stars, two_stars, "res://Levels/Main menu.tscn")
+			return
 		var current_scene_file = get_tree().current_scene.scene_file_path
 		var next_level_number = current_scene_file.to_int() + 1
 		var next_level_path = FILE_DIR + str(next_level_number) + ".tscn"
