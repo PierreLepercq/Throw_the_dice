@@ -50,6 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0)
 
 [node name="GoalMarker" type="MeshInstance3D" parent="End" unique_id=651602352]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0)
+visible = false
 mesh = SubResource("PlaneMesh_ck3gp")
 surface_material_override/0 = ExtResource("5_4t7ew")
 

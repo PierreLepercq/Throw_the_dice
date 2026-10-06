@@ -149,6 +149,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Retry"
 
+[node name="Menu" type="Button" parent="HUD/PanelContainer/WinPanel" unique_id=140226885]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Menu"
+
 [node name="Load" type="Label" parent="HUD" unique_id=1094512391]
 offset_left = 11.0
 offset_top = 600.0

@@ -5,7 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://o8yxkyvngai2" path="res://Emma/Assets/LAST_LEVEL_002.fbx" id="5_a8d26"]
 [ext_resource type="PackedScene" uid="uid://fdv262dg1sxg" path="res://Gnoumagbe/shaders.tscn" id="6_5ynsm"]
 [ext_resource type="MeshLibrary" uid="uid://dhpboimaq38u0" path="res://tiles.tres" id="6_6jklh"]
+[ext_resource type="Script" uid="uid://b0xfe5apmnbyh" path="res://Gnoumagbe/Next_Level.gd" id="7_iiwug"]
 [ext_resource type="PackedScene" uid="uid://16uixv3anms8" path="res://Gnoumagbe/graphic/Background.tscn" id="7_qtmx5"]
+[ext_resource type="PackedScene" uid="uid://c1dw7sxlpi42b" path="res://Gnoumagbe/graphic/Goal.tscn" id="8_psqcj"]
+[ext_resource type="Material" uid="uid://lo56d808jses" path="res://assets/3d/mtrl_4.tres" id="9_g7rsd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3punw"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tj4bg"]
+size = Vector2(0.9, 0.9)
 
 [node name="Node3D" type="Node3D" unique_id=1233023898]
 
@@ -19,18 +27,20 @@ script = ExtResource("1_iiwug")
 player = NodePath("../../Base")
 
 [node name="Base" type="Node3D" parent="." unique_id=29706887]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 8.5)
 
 [node name="CharacterBody3D" parent="Base" unique_id=1446405869 groups=["Player"] instance=ExtResource("2_psqcj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.319, 15, -4.783)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 15, 3.5)
+
+[node name="Moves" parent="Base/CharacterBody3D/HUD" parent_id_path=PackedInt32Array(1446405869, 203924087) index="0" unique_id=1734578553]
+visible = false
 
 [node name="GridMap" type="GridMap" parent="." unique_id=289014188]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.61, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 visible = false
 mesh_library = ExtResource("6_6jklh")
 cell_size = Vector3(1, 1, 1)
 data = {
-"cells": PackedInt32Array(65527, 8, 1, 65527, 7, 1, 65528, 6, 1, 65527, 6, 1, 65527, 5, 1, 65528, 5, 1, 65529, 5, 1, 65529, 4, 1, 65528, 4, 1, 65529, 3, 1, 65530, 3, 1, 65530, 4, 1, 65530, 2, 1, 65529, 2, 1, 65528, 1, 1, 65529, 1, 1, 65527, 1, 1, 65527, 0, 1, 65526, 0, 1, 65526, 65535, 1, 65526, 65534, 3, 65526, 65533, 1, 65527, 65533, 1, 65528, 65533, 1, 65528, 65532, 3, 65529, 65532, 3, 65530, 65532, 3, 65529, 65533, 1, 65531, 65532, 3, 65532, 65532, 3, 65532, 65531, 3, 65533, 65532, 3, 65533, 65531, 3, 65534, 65531, 3, 65534, 65532, 3, 65534, 65533, 3, 65534, 65534, 1, 65535, 65532, 3, 65535, 65534, 3, 65535, 65533, 3, 65535, 65535, 1, 65535, 0, 1, 0, 0, 1, 65534, 65535, 1, 65534, 0, 1, 2, 9, 1, 1, 9, 1, 1, 8, 1, 0, 8, 1, 65535, 7, 1, 65534, 7, 1, 65533, 6, 1, 65532, 6, 1, 65531, 5, 1, 65530, 5, 1, 65527, 4, 1, 65526, 3, 1, 65525, 3, 1, 65524, 2, 1, 65523, 1, 1, 65522, 0, 1, 65522, 65535, 1, 65521, 65535, 1, 65521, 65534, 1, 65520, 65534, 1, 65522, 65534, 1, 65523, 65534, 1, 65524, 65533, 1, 65525, 65533, 1, 65530, 65533, 1, 65531, 65533, 1, 65532, 65533, 1, 65533, 65533, 1, 65532, 65534, 1, 65531, 65534, 1, 65530, 65534, 1, 65529, 65534, 1, 65528, 65534, 1, 65527, 65535, 1, 65528, 65535, 1, 65529, 0, 1, 65530, 0, 1, 65531, 0, 1, 65532, 65535, 1, 65533, 65535, 1, 65533, 0, 1, 65532, 0, 1, 65528, 0, 1, 65529, 65535, 1, 65530, 65535, 1, 65531, 65535, 1, 65533, 65534, 1, 65530, 1, 1, 65531, 1, 1, 65532, 1, 1, 65533, 1, 1, 65534, 1, 1, 65535, 1, 1, 0, 1, 1, 1, 1, 1, 1, 2, 1, 0, 2, 1, 65535, 2, 1, 65534, 2, 1, 65533, 3, 1, 65532, 3, 1, 65531, 3, 1, 65528, 3, 1, 65527, 3, 1, 65526, 2, 1, 65525, 2, 1, 65524, 3, 1, 65528, 2, 1, 65531, 2, 1, 65532, 2, 1, 65533, 2, 1, 65535, 3, 1, 65534, 3, 1, 65526, 4, 1, 65525, 4, 1, 65524, 4, 1, 65523, 4, 1, 65522, 4, 1, 65521, 4, 1, 65535, 4, 1, 0, 4, 1, 1, 4, 1, 2, 4, 1, 3, 4, 1, 1, 5, 1, 0, 5, 1, 65535, 5, 1, 65534, 5, 1, 65533, 5, 1, 65532, 5, 1, 65526, 6, 1, 65525, 6, 1, 65524, 6, 1, 65523, 6, 1, 65526, 5, 1, 65532, 4, 1, 65533, 4, 1, 65534, 4, 1, 0, 3, 1, 1, 3, 1, 65534, 6, 1, 65534, 8, 1, 65534, 9, 1, 65533, 7, 1, 65532, 7, 1, 65532, 8, 1, 65531, 9, 1, 65531, 10, 1, 65531, 11, 1, 65531, 12, 1, 65531, 13, 1, 65531, 14, 1, 65531, 8, 1, 65531, 7, 1, 65531, 6, 1, 65531, 4, 1, 65530, 6, 1, 65530, 7, 1, 65530, 8, 1, 65530, 9, 1, 65530, 10, 1, 65529, 11, 1, 65529, 12, 1, 65529, 10, 1, 65529, 9, 1, 65529, 8, 1, 65528, 7, 1, 65526, 8, 1, 65526, 9, 1, 65526, 10, 1, 65526, 11, 1, 65526, 12, 1, 65526, 13, 1, 65526, 7, 1, 65525, 5, 1, 65525, 7, 1, 65525, 8, 1, 65525, 9, 1, 65525, 10, 1, 65525, 11, 1, 65527, 12, 1, 65528, 11, 1, 65528, 10, 1, 65528, 9, 1, 65528, 8, 1, 65527, 9, 1, 65527, 10, 1, 65527, 11, 1, 65527, 13, 1, 65527, 14, 1, 65530, 11, 1, 65530, 12, 1, 65530, 13, 1, 65530, 14, 1, 65529, 14, 1, 65529, 13, 1, 65528, 13, 1, 65528, 14, 1, 65528, 15, 1, 65528, 12, 1, 65526, 1, 1, 65525, 1, 1, 65525, 0, 1, 65524, 0, 1, 65524, 1, 1, 65527, 2, 1, 65523, 3, 1, 65524, 5, 1, 65523, 5, 1, 65522, 5, 1, 65529, 6, 1, 65529, 7, 1)
+"cells": PackedInt32Array(65526, 65534, 3, 65522, 11, 3, 65523, 11, 3, 65523, 10, 3, 65523, 9, 3, 65524, 9, 3, 65525, 9, 3, 65525, 8, 3, 65525, 7, 3, 65525, 6, 3, 65525, 5, 3, 65526, 5, 3, 65527, 5, 3, 65528, 5, 3, 65528, 7, 3, 65529, 6, 3, 65528, 6, 3, 65529, 7, 3, 65530, 7, 3, 65530, 8, 3, 65530, 9, 3, 65531, 9, 3, 65532, 9, 3, 65532, 10, 3, 65532, 11, 3, 65533, 11, 3, 65533, 10, 3, 65533, 9, 3, 65533, 8, 3, 65533, 6, 3, 65533, 7, 3, 65533, 4, 3, 65533, 3, 3, 65533, 5, 3, 65533, 2, 3, 65532, 2, 3, 65531, 2, 3, 65532, 3, 3, 65532, 4, 3, 65532, 5, 3, 65531, 5, 3, 65531, 4, 3, 65531, 3, 3, 65531, 6, 3, 65532, 7, 3, 65531, 7, 3, 65531, 8, 3, 65532, 8, 3, 65532, 6, 3, 65530, 1, 3, 65530, 2, 3, 65530, 3, 3, 65530, 4, 3, 65530, 5, 3, 65530, 6, 3, 65529, 4, 3, 65529, 3, 3, 65529, 5, 3, 65528, 3, 3, 65528, 2, 3, 65529, 2, 3, 65529, 1, 3, 65529, 0, 3, 65529, 65535, 3, 65529, 65534, 3, 65528, 4, 3, 65527, 4, 3, 65526, 4, 3, 65527, 3, 3, 65526, 3, 3, 65527, 2, 3, 65526, 2, 3, 65527, 1, 3, 65528, 1, 3, 65528, 0, 3, 65527, 0, 3, 65526, 1, 3, 65526, 0, 3, 65528, 65535, 3, 65527, 65535, 3, 65526, 65535, 3, 65528, 65534, 3, 65527, 65534, 3, 65525, 1, 3, 65524, 1, 3, 65524, 2, 3, 65524, 3, 3, 65525, 3, 3, 65525, 2, 3, 65524, 0, 3, 65525, 0, 3, 65523, 2, 3, 65522, 2, 3, 65524, 8, 3, 65524, 7, 3, 65524, 6, 3, 65524, 5, 3, 65524, 4, 3, 65525, 4, 3, 65523, 3, 3, 65522, 3, 3, 65523, 4, 3, 65523, 5, 3, 65522, 5, 3, 65522, 6, 3, 65522, 7, 3, 65522, 8, 3, 65522, 9, 3, 65522, 10, 3, 65523, 8, 3, 65523, 7, 3, 65523, 6, 3, 65522, 4, 3, 65522, 12, 3, 65522, 13, 3, 65523, 13, 3, 65524, 13, 3, 65525, 13, 3, 65526, 13, 3, 65527, 13, 2, 65528, 13, 2, 65529, 13, 3, 65530, 13, 3, 65531, 13, 3, 65532, 13, 3, 65533, 13, 3, 65533, 12, 3, 65523, 12, 3, 65532, 12, 3, 65531, 1, 3, 65531, 0, 3, 65530, 0, 3)
 }
 
 [node name="MeshInstance3D" parent="." unique_id=692236584 instance=ExtResource("7_qtmx5")]
@@ -52,7 +62,71 @@ light_color = Color(0.27232108, 0.108002506, 0.18585166, 1)
 light_energy = 1.889
 
 [node name="LAST_LEVEL_002" parent="." unique_id=531101204 instance=ExtResource("5_a8d26")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.862888, -2.056633, 3.3539686)
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -6.773, -2.387, 3.054)
 
 [node name="Shaders" parent="." unique_id=2142376859 instance=ExtResource("6_5ynsm")]
-transform = Transform3D(11.906943, 0, 0, 0, 5.7180815, 0, 0, 0, 8.116948, -8.089969, -2.763072, 10.101673)
+transform = Transform3D(11.974, 0, 0, 0, 5.75, 0, 0, 0, 8.162, -8, -2.933, 9.882)
+
+[node name="End" type="Area3D" parent="." unique_id=2014227631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5000005, -0.5, 13.5)
+script = ExtResource("7_iiwug")
+three_stars = 32
+two_stars = 39
+is_bonus = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="End" unique_id=605993]
+shape = SubResource("BoxShape3D_3punw")
+
+[node name="Goal" parent="End" unique_id=1862617467 instance=ExtResource("8_psqcj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0)
+
+[node name="GoalMarker" type="MeshInstance3D" parent="End" unique_id=1869228166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0)
+visible = false
+mesh = SubResource("PlaneMesh_tj4bg")
+surface_material_override/0 = ExtResource("9_g7rsd")
+
+[node name="End2" type="Area3D" parent="." unique_id=877654402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, -0.5, 13.5)
+script = ExtResource("7_iiwug")
+three_stars = 32
+two_stars = 39
+is_bonus = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="End2" unique_id=1520165568]
+shape = SubResource("BoxShape3D_3punw")
+
+[node name="Goal" parent="End2" unique_id=207283768 instance=ExtResource("8_psqcj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0)
+
+[node name="GoalMarker" type="MeshInstance3D" parent="End2" unique_id=1665893172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0)
+visible = false
+mesh = SubResource("PlaneMesh_tj4bg")
+surface_material_override/0 = ExtResource("9_g7rsd")
+
+[node name="Help" type="CanvasLayer" parent="." unique_id=483032564]
+
+[node name="Label" type="Label" parent="Help" unique_id=1758701098]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.5
+offset_top = -182.0
+offset_right = 344.5
+offset_bottom = -88.99963
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "Well Done!
+Bonus Level"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="End" to="End" method="_on_body_entered"]
+[connection signal="body_entered" from="End2" to="End2" method="_on_body_entered"]
+
+[editable path="Base/CharacterBody3D"]
