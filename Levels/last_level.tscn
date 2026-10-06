@@ -12,9 +12,9 @@
 [node name="CameraPivot" type="Node3D" parent="." unique_id=108885379]
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1939474585 node_paths=PackedStringArray("player")]
-transform = Transform3D(0.91195154, 0.20514902, -0.35532853, -1.7598262e-08, 0.86602545, 0.5, 0.41029805, -0.45597574, 0.7897732, -14.837104, 11.261522, 21.863707)
+transform = Transform3D(0.91195154, 0.20514901, -0.3553285, -1.7598264e-08, 0.8660254, 0.5, 0.41029802, -0.45597574, 0.78977317, -16.175753, 9.742601, 22.957546)
 projection = 1
-size = 16.0
+size = 19.738
 script = ExtResource("1_iiwug")
 player = NodePath("../../Base")
 
@@ -37,19 +37,20 @@ data = {
 transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 5.0338287, -3.7755966, -30.736198)
 
 [node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=11884960]
-transform = Transform3D(0.90052557, -0.39237976, 0.18732813, 0.15096416, 0.68618983, 0.71158516, -0.40775424, -0.6125208, 0.67716676, 1.2476823, 2.9986455, 6.218872)
-light_color = Color(0.95686275, 0.78039217, 0.42745098, 1)
-light_energy = 11.815
+transform = Transform3D(0.98670846, -0.049294528, -0.1548434, 0.14812416, 0.664693, 0.7322858, 0.06682564, -0.7454887, 0.66315985, -8.236625, 8.276473, 15.494717)
+light_color = Color(0.94437397, 0.6277661, 0.2591739, 1)
+light_energy = 8.805
 area_range = 14.697
+area_attenuation = 0.406
 area_size = Vector2(6.962776, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=989057847]
 transform = Transform3D(0.9153484, 0.3968814, -0.06798827, -0.1849224, 0.56432503, 0.804575, 0.35768837, -0.723894, 0.58994627, -21.566975, 13.146436, 14.873307)
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=194316052]
-transform = Transform3D(0.0960514, 0, -0.9953764, 0, 1, 0, 0.9953764, 0, 0.0960514, -13.746601, 0.017323494, -0.007584572)
-light_color = Color(0.27232108, 0.108002506, 0.18585166, 1)
-light_energy = 1.889
+transform = Transform3D(0.0960514, 0, -0.9953764, 0, 1, 0, 0.9953764, 0, 0.0960514, -18.737988, 0.017323494, 7.590638)
+light_color = Color(0.28851315, 0.08076098, 0.21485028, 1)
+light_energy = 4.74
 
 [node name="LAST_LEVEL_002" parent="." unique_id=531101204 instance=ExtResource("5_a8d26")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.862888, -2.056633, 3.3539686)
