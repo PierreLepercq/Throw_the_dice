@@ -75,9 +75,10 @@ transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 
 
 [node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=11884960]
 transform = Transform3D(0.90052557, -0.39237976, 0.18732813, 0.15096416, 0.68618983, 0.71158516, -0.40775424, -0.6125208, 0.67716676, 1.2476823, 2.9986455, 6.218872)
-light_color = Color(0.95686275, 0.78039217, 0.42745098, 1)
+light_color = Color(0.95686275, 0.7019608, 0.42745098, 1)
 light_energy = 11.815
 area_range = 14.697
+area_attenuation = 0.802
 area_size = Vector2(6.962776, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=989057847]
@@ -85,7 +86,7 @@ transform = Transform3D(0.9153484, 0.3968814, -0.06798827, -0.1849224, 0.5643250
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=194316052]
 transform = Transform3D(0.0960514, 0, -0.9953764, 0, 1, 0, 0.9953764, 0, 0.0960514, -13.746601, 0.017323494, -0.007584572)
-light_color = Color(0.27232108, 0.108002506, 0.18585166, 1)
+light_color = Color(0.28769574, 0.115782954, 0.19721207, 1)
 light_energy = 1.889
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=839988757]
