@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cuykughdw6s66" path="res://level_select.gd" id="1_il3u1"]
 [ext_resource type="Texture2D" uid="uid://vdgy7g8bmrkq" path="res://Gnoumagbe/graphic/p2rpfZc.jpg" id="2_vomi7"]
+[ext_resource type="Texture2D" uid="uid://bcghodnqfox8d" path="res://Emma/2D/Background.png" id="3_wevku"]
 
 [node name="Control" type="Control" unique_id=193224912]
 layout_mode = 3
@@ -13,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_il3u1")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1017756226]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,3 +76,9 @@ custom_minimum_size = Vector2(400, 80)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "BACK"
+
+[node name="Background" type="Sprite2D" parent="CenterContainer/VBoxContainer" unique_id=360235992]
+z_index = -1
+position = Vector2(203.43353, 234.75)
+scale = Vector2(0.4967026, 0.4967026)
+texture = ExtResource("3_wevku")

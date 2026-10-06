@@ -21,7 +21,7 @@ func _on_body_entered(body: Node3D) -> void:
 		var next_level_number = current_scene_file.to_int() + 1
 		var next_level_path = FILE_DIR + str(next_level_number) + ".tscn"
 		if not ResourceLoader.exists(next_level_path):
-			next_level_path = "res://Levels/Main menu.tscn"
+			next_level_path = "res://Levels/last_level.tscn"
 		body.show_win(count_stars(body.moves), three_stars, two_stars, next_level_path)
 
 func count_stars(moves: int) -> int:

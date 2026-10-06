@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b0xfe5apmnbyh" path="res://Gnoumagbe/Next_Level.gd" id="3_fa81k"]
 [ext_resource type="Script" uid="uid://k12kx2jugghd" path="res://Gnoumagbe/scene_condition.gd" id="4_ck3gp"]
 [ext_resource type="PackedScene" uid="uid://c1dw7sxlpi42b" path="res://Gnoumagbe/graphic/Goal.tscn" id="4_trpa2"]
+[ext_resource type="Material" uid="uid://lo56d808jses" path="res://assets/3d/mtrl_4.tres" id="5_4t7ew"]
 [ext_resource type="MeshLibrary" uid="uid://dhpboimaq38u0" path="res://tiles.tres" id="5_trpa2"]
 [ext_resource type="PackedScene" uid="uid://16uixv3anms8" path="res://Gnoumagbe/graphic/Background.tscn" id="8_fa81k"]
 [ext_resource type="PackedScene" uid="uid://bosfp0lui6uaj" path="res://Emma/Assets/LEVEL_3.fbx" id="9_ck3gp"]
@@ -15,11 +16,6 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ck3gp"]
 size = Vector2(0.9, 0.9)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trpa2"]
-albedo_color = Color(6.40139e-06, 0.79588515, 7.70092e-07, 1)
-emission_enabled = true
-emission_energy_multiplier = 0.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_4t7ew"]
 
@@ -49,12 +45,13 @@ two_stars = 39
 [node name="CollisionShape3D" type="CollisionShape3D" parent="End" unique_id=527730005]
 shape = SubResource("BoxShape3D_4ye73")
 
+[node name="Goal" parent="End" unique_id=1862617467 instance=ExtResource("4_trpa2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0)
+
 [node name="GoalMarker" type="MeshInstance3D" parent="End" unique_id=651602352]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0)
 mesh = SubResource("PlaneMesh_ck3gp")
-surface_material_override/0 = SubResource("StandardMaterial3D_trpa2")
-
-[node name="Goal" parent="End/GoalMarker" unique_id=1862617467 instance=ExtResource("4_trpa2")]
+surface_material_override/0 = ExtResource("5_4t7ew")
 
 [node name="Start" type="Node3D" parent="." unique_id=1809703995 node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 8.5)
@@ -71,7 +68,7 @@ data = {
 }
 
 [node name="MeshInstance3D" parent="." unique_id=692236584 instance=ExtResource("8_fa81k")]
-transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 5.0338287, -3.7755966, -30.736198)
+transform = Transform3D(0.90533525, -0.408857, -0.114909396, -0.005519539, 0.2592174, -0.9658034, 0.4246619, 0.8750098, 0.23242192, 26.234642, -34.898624, -73.618225)
 
 [node name="LEVEL_3" parent="." unique_id=1893979324 instance=ExtResource("9_ck3gp")]
 transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 9.54, -0.47, 8.47)

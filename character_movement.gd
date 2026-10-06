@@ -100,8 +100,11 @@ func _process(delta: float) -> void:
 	pass
 	
 func _unhandled_input(event: InputEvent) -> void: # pour restart avec R
-	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_R:
-		get_tree().reload_current_scene()
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_R:
+			get_tree().reload_current_scene()
+		if event.keycode == KEY_L:
+			get_tree().change_scene_to_file("res://level_select.tscn")
 
 func show_win(stars: int, three_stars: int, two_stars: int, next_path: String) -> void:
 	var help = get_tree().current_scene.get_node_or_null("Help")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ohadvh660wxk" path="res://Gnoumagbe/main_menu.gd" id="1_21aox"]
 [ext_resource type="Texture2D" uid="uid://vdgy7g8bmrkq" path="res://Gnoumagbe/graphic/p2rpfZc.jpg" id="2_lop6u"]
+[ext_resource type="Texture2D" uid="uid://d3qiae5ghto18" path="res://Emma/2D/LOGO_V2.png" id="3_wxrg6"]
 
 [node name="MainMenu" type="Control" unique_id=1787059775]
 layout_mode = 3
@@ -13,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_21aox")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1907482496]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,10 +44,16 @@ text = " PLAY "
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = " LEVELS"
+text = " LEVELS "
 
 [node name="Exit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1079517621]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "QUIT"
+
+[node name="LogoV2" type="Sprite2D" parent="CenterContainer/VBoxContainer" unique_id=1014778011]
+z_index = -1
+position = Vector2(230.00002, 130)
+scale = Vector2(0.8282408, 0.82824075)
+texture = ExtResource("3_wxrg6")

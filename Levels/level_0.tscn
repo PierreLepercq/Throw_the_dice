@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cajdveswn36qc" path="res://Gnoumagbe/camera_follow.gd" id="2_sl8k4"]
 [ext_resource type="PackedScene" uid="uid://di68h2hjqtn0j" path="res://Gnoumagbe/character_body_3d.tscn" id="3_hipi8"]
+[ext_resource type="Material" uid="uid://lo56d808jses" path="res://assets/3d/mtrl_4.tres" id="4_6q0gy"]
 [ext_resource type="PackedScene" uid="uid://c1dw7sxlpi42b" path="res://Gnoumagbe/graphic/Goal.tscn" id="4_hyv8f"]
 [ext_resource type="Script" uid="uid://b0xfe5apmnbyh" path="res://Gnoumagbe/Next_Level.gd" id="4_sfv2l"]
 [ext_resource type="MeshLibrary" uid="uid://dhpboimaq38u0" path="res://tiles.tres" id="5_5pqfd"]
@@ -9,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cgojh63ouump6" path="res://Gnoumagbe/graphic/sky.png" id="8_kiobq"]
 [ext_resource type="Shader" uid="uid://cx1xxhk8ikssy" path="res://Levelscloud.tres" id="9_75g3n"]
 [ext_resource type="PackedScene" uid="uid://bxdagqn3wgafp" path="res://Emma/Assets/LEVEL_0-01.fbx" id="10_5ohqh"]
-[ext_resource type="PackedScene" uid="uid://cudbpe2jeeff2" path="res://Gnoumagbe/killzone.tscn" id="10_g0qw3"]
+[ext_resource type="PackedScene" uid="uid://d0677rg14abuf" path="res://Gnoumagbe/killzone.tscn" id="10_g0qw3"]
 [ext_resource type="PackedScene" uid="uid://fdv262dg1sxg" path="res://Gnoumagbe/shaders.tscn" id="11_g0qw3"]
 [ext_resource type="Material" uid="uid://bdyt0gtwomlhj" path="res://Emma/Assets/Material.025.tres" id="11_hyv8f"]
 
@@ -17,11 +18,6 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0mx8d"]
 size = Vector2(0.9, 0.9)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_swqdq"]
-albedo_color = Color(6.40139e-06, 0.79588515, 7.70092e-07, 1)
-emission_enabled = true
-emission_energy_multiplier = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75g3n"]
 albedo_texture = ExtResource("8_kiobq")
@@ -75,9 +71,10 @@ shape = SubResource("BoxShape3D_4ye73")
 [node name="GoalMarker" type="MeshInstance3D" parent="End" unique_id=2101995508]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54, 0)
 mesh = SubResource("PlaneMesh_0mx8d")
-surface_material_override/0 = SubResource("StandardMaterial3D_swqdq")
+surface_material_override/0 = ExtResource("4_6q0gy")
 
-[node name="Goal" parent="End/GoalMarker" unique_id=1862617467 instance=ExtResource("4_hyv8f")]
+[node name="Goal" parent="End" unique_id=1862617467 instance=ExtResource("4_hyv8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1793249338]
 transform = Transform3D(0.91534853, 0.39688146, -0.06798825, -0.18492241, 0.564325, 0.8045752, 0.3576884, -0.7238939, 0.5899462, -21.57178, 13.129112, 14.880892)
