@@ -112,6 +112,7 @@ func show_win(stars: int, three_stars: int, two_stars: int, next_path: String) -
 		help.visible = false
 	$HUD/Moves.visible = false
 	$HUD/Restart.visible = false
+	$HUD/Load.visible = false
 	next_level_path = next_path
 	$HUD/PanelContainer/WinPanel/WinText.text = "Level complete!\n"
 	$HUD/PanelContainer/WinPanel/FinalMoves.text = "Your moves: " + str(moves) + "\n"

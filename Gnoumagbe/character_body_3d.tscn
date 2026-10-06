@@ -45,17 +45,20 @@ autoplay = true
 [node name="HUD" type="CanvasLayer" parent="." unique_id=203924087]
 
 [node name="Moves" type="Label" parent="HUD" unique_id=1734578553]
-offset_right = 93.0
-offset_bottom = 23.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 337.0
+offset_bottom = 68.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 48
 text = "Moves: 0"
 
 [node name="Restart" type="Label" parent="HUD" unique_id=2131329098]
-offset_top = 78.73
-offset_right = 75.0
-offset_bottom = 101.73001
+offset_left = 12.0
+offset_top = 565.0
+offset_right = 284.0
+offset_bottom = 605.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
@@ -145,6 +148,16 @@ text = "Next level"
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Retry"
+
+[node name="Load" type="Label" parent="HUD" unique_id=1094512391]
+offset_left = 11.0
+offset_top = 600.0
+offset_right = 283.0
+offset_bottom = 640.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "L: Load"
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=961788994]
 transform = Transform3D(1.464, 0, 0, 0, 1, 0, 0, 0, 1.464, 0, 0.5951925, 0)
