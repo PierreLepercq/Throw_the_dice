@@ -10,6 +10,10 @@
 [ext_resource type="AudioStream" uid="uid://cd54ra2ed8m0m" path="res://Music/new/Ré.mp3" id="5_0kmqe"]
 [ext_resource type="AudioStream" uid="uid://k61ftvskwkgo" path="res://Music/new/Si.mp3" id="6_mkwjm"]
 [ext_resource type="AudioStream" uid="uid://ve3so7w2rxd4" path="res://Music/new/Sol.mp3" id="7_xjo03"]
+[ext_resource type="Material" uid="uid://cigqmyc7v3ry8" path="res://assets/3d/face.tres" id="11_7ky8h"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_eo23q"]
+size = Vector2(1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gk8nk"]
 
@@ -29,6 +33,11 @@ sons_de = Array[AudioStream]([ExtResource("2_55ca1"), ExtResource("3_7ky8h"), Ex
 
 [node name="Mesh" parent="Pivot" unique_id=2056667528 instance=ExtResource("2_wjg2j")]
 transform = Transform3D(0.5, 0, 0, 0, -2.1855692e-08, 0.49999997, 0, -0.49999997, -2.1855692e-08, 0, 0.49971855, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/Mesh" unique_id=1003622411]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, -4.3805194e-08, 1.002146)
+mesh = SubResource("PlaneMesh_eo23q")
+surface_material_override/0 = ExtResource("11_7ky8h")
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1576795103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

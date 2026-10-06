@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cigqmyc7v3ry8"]
+
+[ext_resource type="Texture2D" uid="uid://cielpixmarfbq" path="res://Emma/2D/FACE.png" id="1_mxvq0"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_mxvq0")
